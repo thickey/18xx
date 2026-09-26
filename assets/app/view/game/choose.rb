@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'view/game/actionable'
+require 'view/game/map_builder'
 
 module View
   module Game
@@ -11,6 +12,7 @@ module View
 
       def render
         step = @game.round.active_step
+        return h(MapBuilder) if step.respond_to?(:map_builder?) && step.map_builder?
         return '' if step.respond_to?(:render_choices?) && !step.render_choices?
 
         choices = if step.respond_to?(:entity_choices)
