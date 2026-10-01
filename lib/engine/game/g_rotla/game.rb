@@ -4,6 +4,8 @@ require_relative 'meta'
 require_relative '../base'
 require_relative 'map'
 require_relative 'map_builder'
+require_relative 'real_map_builder'
+require_relative 'extended_setup'
 require_relative 'round/setup'
 require_relative 'step/map_setup'
 
@@ -14,6 +16,8 @@ module Engine
         include_meta(GRotla::Meta)
         include Map
         include MapBuilder
+        include RealMapBuilder
+        include ExtendedSetup
 
         # Neutral scaffolding for map exploration; these are not RotLA economic rules.
         BANK_CASH = 10_000
@@ -30,10 +34,18 @@ module Engine
         end
 
         def map_name
-          @map_id ? Map::PRESETS[@map_id][:name] : "Custom map (#{@placements&.size || 0}/4 pieces)"
+          return "#{piece_name} review" if @review_tile
+
+          @map_id ? Map::PRESETS[@map_id][:name] : "Custom map (#{@placements&.size || 0}/#{piece_count} pieces)"
         end
 
         def init_starting_cash(_players, _bank); end
+
+        def upgrades_to?(from, to, special = false, selected_company: nil)
+          return false if from.color == :gray
+
+          super
+        end
 
         def setup
           reset_piece_supply!
@@ -48,9 +60,17 @@ module Engine
         end
 
         def rebuild_map!
-          # Rebuild the normal engine map from the placed pieces. No tokens or
-          # track exist during this setup prototype.
+          # Rebuild from setup pieces; no player-laid track or tokens exist yet.
           @hexes = init_hexes(@companies, @corporations)
+          if @review_tile && (home = @hexes.find do |hex|
+                                hex.tile.cities.any? && (@review_tile != 7 || hex.tile.label.to_s == 'P')
+                              end)
+            @review_home ||= Engine::Minor.new(sym: review_definition[:sym], name: review_definition[:name],
+                                               tokens: [], color: '#57b8b0')
+            home.tile.cities.first.add_reservation!(@review_home, @review_tile == 11 ? 1 : 0)
+            home.location_name = review_definition[:name]
+          end
+          reserve_real_homes!
           @cities = (@hexes.map(&:tile) + @tiles).flat_map(&:cities)
           @graph = init_graph
           cache_objects

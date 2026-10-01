@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "source": "RailwaysRulebook-CleanFonts.pdf",
+  "edition_scope": "Supplied PDF uses the original extra-3-train rule (5 players only); do not combine silently with the 2026 revision kit.",
+  "setup": {
+    "source_pdf_pages": [
+      3,
+      7,
+      8
+    ],
+    "source_printed_pages": [
+      2,
+      6,
+      7
+    ],
+    "base_trihex_quantity": 33,
+    "capital_project_quantity": 3,
+    "capital_overlay_quantity": 3,
+    "optional_double_sided_single_hex_quantity": 12,
+    "placement_minimum_shared_edges": 3,
+    "placement_notes": [
+      "The first tile is placed in the center; subsequent tiles share at least three edges with the existing map.",
+      "Tiles cannot overlap. New pieces cannot share an edge with an existing black border hex; their own border hexes must likewise not touch existing pieces.",
+      "Border hexes already share internal edges within their own printed piece; the restriction applies between separate pieces.",
+      "Preprinted track imposes no extra restriction during map construction.",
+      "Resolve project tiles when drawn, then return them to the box. If a project cannot be resolved, put it at the bottom of the stack and draw again.",
+      "Setup ends when every map tile is placed and every project is resolved.",
+      "The generator's fixed tile 25 is an option of that generator; the rulebook normally begins with a shuffled random tile.",
+      "Capital overlays are setup-dependent city upgrades, not fixed terrain of a numbered map tile."
+    ],
+    "short_game": {
+      "remove_printed_tiles": [
+        9,
+        10,
+        11,
+        21,
+        26
+      ],
+      "remove_one_copy_each": [
+        12,
+        13,
+        14
+      ],
+      "remove_capital_projects": 1,
+      "remove_minors": [
+        "AD",
+        "BR",
+        "OV",
+        "SP"
+      ],
+      "remaining_trihex_quantity": 25,
+      "remove_one_train_each": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    "starting_cash": {
+      "2": 450,
+      "3": 300,
+      "4": 275,
+      "5": 220
+    },
+    "player_count_restrictions": {
+      "2": "Short Game only",
+      "5": "Long Game only"
+    },
+    "recommended_destination_revenues": {
+      "yellow": 30,
+      "green": 40,
+      "purple": 70,
+      "grey": 100
+    },
+    "destination_note": "Four destination revenue cards are supplied, including a customizable card; the recommended schedule is not universal."
+  },
+  "company_abilities": {
+    "source_pdf_page": 25,
+    "source_printed_page": 24,
+    "status": "Paraphrased and visually verified; descriptive rules, not executable engine abilities.",
+    "companies": {
+      "AD": {
+        "kind": "choose_home",
+        "notes": "Initial president chooses an empty basic city spot at launch, with or without track. Excludes capital, mining, port, and other companies' reserved spots."
+      },
+      "AG": {
+        "kind": "extra_yellow_lay",
+        "notes": "May lay a yellow tile after a tile upgrade."
+      },
+      "BR": {
+        "kind": "bridges",
+        "bridge_supply": {
+          "straight": 2,
+          "broad_curve": 2,
+          "sharp_curve": 1
+        },
+        "notes": "May lay bridge tiles over water in place of yellow lays. Bridges cannot upgrade. Its track may point into water."
+      },
+      "EM": {
+        "kind": "special_home_upgrade",
+        "symbol": "mining",
+        "notes": "Any company may upgrade this home subject to normal requirements. Preserve the existing connection to the hex side, rather than the precise path shape or city placement; the new leg may turn either way."
+      },
+      "EA": {
+        "kind": "extra_hub",
+        "cost": 40,
+        "notes": "Extra hub obeys ordinary placement rules. If unused at merger, convert it to the major's identity and retain its 40-cost position."
+      },
+      "ER": {
+        "kind": "train_boost",
+        "extra_stops": 1,
+        "notes": "Applies only while owning exactly one train."
+      },
+      "NP": {
+        "kind": "special_home_upgrade",
+        "symbol": "anchor",
+        "notes": "Home follows the port upgrade set; any company may upgrade it under ordinary requirements."
+      },
+      "OV": {
+        "kind": "pass_blocked_cities",
+        "notes": "May pass fully tokened cities without counting them as stops or collecting their revenue. Also applies to track reachability and merger connections; after merger, to hub placement reachability."
+      },
+      "RE": {
+        "kind": "delayed_rust",
+        "notes": "Rusted trains run once more, then are discarded. They do not count against the train limit, cannot be sold, and cannot be traded in for infinity trains."
+      },
+      "SP": {
+        "kind": "train_limit_bonus",
+        "bonus": 1,
+        "notes": "Uses minor limits before merger and major limits afterward."
+      },
+      "SU": {
+        "kind": "suburbs",
+        "tokens": 2,
+        "revenue_bonus_per_train": 10,
+        "notes": "Place at any point during its operating round, possibly both in one round, on reachable basic cities without its hub. Excludes capital, mining and port cities. Maximum one suburb per tile; bonus applies to each of its trains visiting the city."
+      },
+      "TU": {
+        "kind": "mountain_payment",
+        "terrain_cost": 40,
+        "treasury_payment": 60,
+        "net_gain": 20,
+        "notes": "Must afford and pay digging cost first; receive 60 after each mountain tile is laid."
+      }
+    }
+  },
+  "open_questions": [
+    "Translate preprinted home and destination tracks, city slots, revenues and exits into engine codes.",
+    "Confirm every capital project's exact printed placement instruction and engine implementation.",
+    "Inventory the remaining destination revenue cards and alternate major identities.",
+    "Choose original or revised rules before implementing the train roster."
+  ]
+}

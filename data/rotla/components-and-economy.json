@@ -1,0 +1,194 @@
+{
+  "source": "http://www.fwtwr.com/18xx/info/inv-rotla.asp",
+  "components": [
+    {
+      "name": "Company/tile reference sheet",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Distant destination revenue cards",
+      "quantity": "4",
+      "notes": "-"
+    },
+    {
+      "name": "Express token",
+      "quantity": "1",
+      "notes": "Wooden - used by the Express minor company"
+    },
+    {
+      "name": "Introductory maps sheet",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Micro game map sheet",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Money cards",
+      "quantity": "285",
+      "notes": "24,500 in total"
+    },
+    {
+      "name": "Priority player marker",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Map tiles",
+      "quantity": "51",
+      "notes": "33 tri-hex tiles, 3 capital city project tiles, 3 capital city overlay tiles, 12 extra double-sided overlay tiles"
+    },
+    {
+      "name": "Minor company certificates",
+      "quantity": "36",
+      "notes": "9 sets of four"
+    },
+    {
+      "name": "Minor company charters",
+      "quantity": "12",
+      "notes": "-"
+    },
+    {
+      "name": "Phase/rust reminder cards",
+      "quantity": "3",
+      "notes": "Double-sided"
+    },
+    {
+      "name": "Player aid cards",
+      "quantity": "10",
+      "notes": "5 turn summary/phase chart, 3 set up cards, 1 company reference, 1 headquarters/hostile mergers card"
+    },
+    {
+      "name": "Public company certificates",
+      "quantity": "54",
+      "notes": "6 sets of nine"
+    },
+    {
+      "name": "Public company charters",
+      "quantity": "6",
+      "notes": "-"
+    },
+    {
+      "name": "Revenue track",
+      "quantity": "1",
+      "notes": "Mounted"
+    },
+    {
+      "name": "Revenue track markers",
+      "quantity": "18",
+      "notes": "Wooden"
+    },
+    {
+      "name": "Round/cycle tracker board",
+      "quantity": "1",
+      "notes": "Mounted"
+    },
+    {
+      "name": "Round/cycle tracker markers",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Rule book",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Station tokens",
+      "quantity": "37",
+      "notes": "-"
+    },
+    {
+      "name": "Stock market",
+      "quantity": "1",
+      "notes": "Mounted"
+    },
+    {
+      "name": "Stock market markers",
+      "quantity": "18",
+      "notes": "Wooden"
+    },
+    {
+      "name": "Suburbs tokens",
+      "quantity": "2",
+      "notes": "Wooden - used by the Suburban minor company"
+    },
+    {
+      "name": "Thank you card",
+      "quantity": "1",
+      "notes": "-"
+    },
+    {
+      "name": "Tiles",
+      "quantity": "135",
+      "notes": "55 yellow, 43 green, 27 brown, 5 grey, 5 blue The games uses purple instead of brown, but I have used the traditional colours here"
+    },
+    {
+      "name": "Train cards",
+      "quantity": "29",
+      "notes": "-"
+    }
+  ],
+  "economics_source": {
+    "cash": {
+      "2-player": "450",
+      "3-player": "300",
+      "4-player": "275",
+      "5-player": "220"
+    },
+    "limits": {
+      "2-player": "Unlimited",
+      "3-player": "Unlimited",
+      "4-player": "Unlimited",
+      "5-player": "Unlimited"
+    }
+  },
+  "trains_original_printing": [
+    {
+      "type": "2",
+      "cost_source": "100",
+      "quantity_source": "7"
+    },
+    {
+      "type": "3",
+      "cost_source": "200",
+      "quantity_source": "5+1"
+    },
+    {
+      "type": "4",
+      "cost_source": "300",
+      "quantity_source": "4"
+    },
+    {
+      "type": "5",
+      "cost_source": "450",
+      "quantity_source": "3"
+    },
+    {
+      "type": "6",
+      "cost_source": "550",
+      "quantity_source": "2"
+    },
+    {
+      "type": "7/D",
+      "cost_source": "750/1,000",
+      "quantity_source": "7"
+    }
+  ],
+  "edition_warning": "Inventory header describes 2026 revision kit, but train table retains original 5-player-only extra 3 and two 6 trains. Do not treat as a unified revised inventory.",
+  "revision_kit_2026": {
+    "extra_3_train_min_players": 4,
+    "additional_6_train_min_players": 4,
+    "also_replaces": [
+      "rulebook",
+      "setup summary",
+      "five turn/phase summaries"
+    ],
+    "adds": [
+      "solo rulebook"
+    ]
+  }
+}

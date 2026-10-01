@@ -1,0 +1,38 @@
+{
+  "board_samples": [
+    {
+      "seed": 3722698,
+      "hex_count": 99,
+      "piece_count": 33,
+      "capital_overlays": [
+        "06_Hex2",
+        "151_Hex1",
+        "161_Hex1"
+      ]
+    },
+    {
+      "seed": 3722699,
+      "hex_count": 99,
+      "piece_count": 33,
+      "capital_overlays": [
+        "04_Hex1",
+        "06_Hex2",
+        "08_Hex3"
+      ]
+    }
+  ],
+  "companies": 18,
+  "track_designs": 54,
+  "track_quantity": 135,
+  "upgrade_source_rows": 62,
+  "upgrade_edges": 111,
+  "checks": [
+    "99 unique cube coordinates and 33 complete pieces per sample",
+    "all three cells mutually adjacent; geometry matches under rotations without reflection",
+    "terrain and names agree after removing capital overlays",
+    "printed IDs 1..28; two copies each of 12..16",
+    "company shares sum to 100%; station tokens total 37",
+    "all track quantities match color subtotals and upgrade chart",
+    "upgrade continuations merged; all targets exist in inventory"
+  ]
+}

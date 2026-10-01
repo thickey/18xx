@@ -1,0 +1,4333 @@
+{
+  "schema_version": 1,
+  "status": "research; not engine tile codes",
+  "coordinate_convention": "Axial q,r from API cube x,y,z; rotate(q,r)=(-r,q+r). Hex1 is origin; lexicographically smallest rotation, never reflected.",
+  "normalization": "capital_city becomes standard_city; capital markers belong to generated setup. Terrain names lowercased; source names retained.",
+  "printed_number_mapping": "01..11 map directly; 120..280 use all but last digit; final digit distinguishes copies. Checked against rulebook component sheet counts.",
+  "orientation_warning": "canonical_facing uses the client orientation lookup (orientation + 2*rotation modulo 6), then applies geometry normalization. Matches both samples. This describes source artwork facing, not engine exits.",
+  "pieces": [
+    {
+      "fixed": {
+        "generator_tile_id": "01",
+        "printed_number": 1,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "01_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "minor_expansive",
+            "source_tile_name": "minor_expansive",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "01_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "01_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                1
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "01_Hex1",
+              "terrain": "minor_expansive",
+              "tile_id": "01",
+              "tile_name": "minor_expansive",
+              "tri_hex_id": 2
+            },
+            {
+              "coordinate": [
+                -3,
+                2
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "01_Hex2",
+              "terrain": "mountain",
+              "tile_id": "01",
+              "tile_name": "",
+              "tri_hex_id": 2
+            },
+            {
+              "coordinate": [
+                -3,
+                1
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "01_Hex3",
+              "terrain": "plain",
+              "tile_id": "01",
+              "tile_name": "",
+              "tri_hex_id": 2
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                3
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "01_Hex1",
+              "terrain": "minor_expansive",
+              "tile_id": "01",
+              "tile_name": "minor_expansive",
+              "tri_hex_id": 26
+            },
+            {
+              "coordinate": [
+                -4,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "01_Hex2",
+              "terrain": "mountain",
+              "tile_id": "01",
+              "tile_name": "",
+              "tri_hex_id": 26
+            },
+            {
+              "coordinate": [
+                -5,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "01_Hex3",
+              "terrain": "plain",
+              "tile_id": "01",
+              "tile_name": "",
+              "tri_hex_id": 26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "02",
+        "printed_number": 2,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "02_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "minor_mining",
+            "source_tile_name": "minor_mining",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "02_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "02_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex1",
+              "terrain": "minor_mining",
+              "tile_id": "02",
+              "tile_name": "minor_mining",
+              "tri_hex_id": 4
+            },
+            {
+              "coordinate": [
+                -1,
+                3
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex2",
+              "terrain": "plain",
+              "tile_id": "02",
+              "tile_name": "",
+              "tri_hex_id": 4
+            },
+            {
+              "coordinate": [
+                -1,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex3",
+              "terrain": "mountain",
+              "tile_id": "02",
+              "tile_name": "",
+              "tri_hex_id": 4
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                2,
+                3
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex1",
+              "terrain": "minor_mining",
+              "tile_id": "02",
+              "tile_name": "minor_mining",
+              "tri_hex_id": 20
+            },
+            {
+              "coordinate": [
+                3,
+                2
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex2",
+              "terrain": "plain",
+              "tile_id": "02",
+              "tile_name": "",
+              "tri_hex_id": 20
+            },
+            {
+              "coordinate": [
+                3,
+                3
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "02_Hex3",
+              "terrain": "mountain",
+              "tile_id": "02",
+              "tile_name": "",
+              "tri_hex_id": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "03",
+        "printed_number": 3,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "03_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "03_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_agricultural",
+            "source_tile_name": "minor_agricultural",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "03_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                5,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "03_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "03",
+              "tile_name": "",
+              "tri_hex_id": 23
+            },
+            {
+              "coordinate": [
+                6,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "03_Hex2",
+              "terrain": "minor_agricultural",
+              "tile_id": "03",
+              "tile_name": "minor_agricultural",
+              "tri_hex_id": 23
+            },
+            {
+              "coordinate": [
+                5,
+                -4
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "03_Hex3",
+              "terrain": "plain",
+              "tile_id": "03",
+              "tile_name": "",
+              "tri_hex_id": 23
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                2,
+                -5
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "03_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "03",
+              "tile_name": "",
+              "tri_hex_id": 11
+            },
+            {
+              "coordinate": [
+                2,
+                -4
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "03_Hex2",
+              "terrain": "minor_agricultural",
+              "tile_id": "03",
+              "tile_name": "minor_agricultural",
+              "tri_hex_id": 11
+            },
+            {
+              "coordinate": [
+                1,
+                -4
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "03_Hex3",
+              "terrain": "plain",
+              "tile_id": "03",
+              "tile_name": "",
+              "tri_hex_id": 11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "04",
+        "printed_number": 4,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "04_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "04_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_resourceful",
+            "source_tile_name": "minor_resourceful",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "04_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "04_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "04",
+              "tile_name": "",
+              "tri_hex_id": 12
+            },
+            {
+              "coordinate": [
+                -3,
+                3
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "04_Hex2",
+              "terrain": "minor_resourceful",
+              "tile_id": "04",
+              "tile_name": "minor_resourceful",
+              "tri_hex_id": 12
+            },
+            {
+              "coordinate": [
+                -3,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "04_Hex3",
+              "terrain": "plain",
+              "tile_id": "04",
+              "tile_name": "",
+              "tri_hex_id": 12
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                4,
+                0
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "04_Hex1",
+              "terrain": "capital_city",
+              "tile_id": "04",
+              "tile_name": "",
+              "tri_hex_id": 14
+            },
+            {
+              "coordinate": [
+                5,
+                0
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "04_Hex2",
+              "terrain": "minor_resourceful",
+              "tile_id": "04",
+              "tile_name": "minor_resourceful",
+              "tri_hex_id": 14
+            },
+            {
+              "coordinate": [
+                4,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "04_Hex3",
+              "terrain": "plain",
+              "tile_id": "04",
+              "tile_name": "",
+              "tri_hex_id": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "05",
+        "printed_number": 5,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "05_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "05_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_express",
+            "source_tile_name": "minor_express",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "05_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                5
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex1",
+              "terrain": "plain",
+              "tile_id": "05",
+              "tile_name": "",
+              "tri_hex_id": 24
+            },
+            {
+              "coordinate": [
+                -5,
+                6
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex2",
+              "terrain": "minor_express",
+              "tile_id": "05",
+              "tile_name": "minor_express",
+              "tri_hex_id": 24
+            },
+            {
+              "coordinate": [
+                -5,
+                5
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex3",
+              "terrain": "water",
+              "tile_id": "05",
+              "tile_name": "",
+              "tri_hex_id": 24
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                3
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex1",
+              "terrain": "plain",
+              "tile_id": "05",
+              "tile_name": "",
+              "tri_hex_id": 27
+            },
+            {
+              "coordinate": [
+                -6,
+                4
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex2",
+              "terrain": "minor_express",
+              "tile_id": "05",
+              "tile_name": "minor_express",
+              "tri_hex_id": 27
+            },
+            {
+              "coordinate": [
+                -6,
+                3
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "05_Hex3",
+              "terrain": "water",
+              "tile_id": "05",
+              "tile_name": "",
+              "tri_hex_id": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "06",
+        "printed_number": 6,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "06_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "06_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "06_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "minor_suburban",
+            "source_tile_name": "minor_suburban",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -3
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "06_Hex1",
+              "terrain": "mountain",
+              "tile_id": "06",
+              "tile_name": "",
+              "tri_hex_id": 9
+            },
+            {
+              "coordinate": [
+                4,
+                -3
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "06_Hex2",
+              "terrain": "capital_city",
+              "tile_id": "06",
+              "tile_name": "",
+              "tri_hex_id": 9
+            },
+            {
+              "coordinate": [
+                3,
+                -2
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "06_Hex3",
+              "terrain": "minor_suburban",
+              "tile_id": "06",
+              "tile_name": "minor_suburban",
+              "tri_hex_id": 9
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                0
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "06_Hex1",
+              "terrain": "mountain",
+              "tile_id": "06",
+              "tile_name": "",
+              "tri_hex_id": 29
+            },
+            {
+              "coordinate": [
+                -6,
+                1
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "06_Hex2",
+              "terrain": "capital_city",
+              "tile_id": "06",
+              "tile_name": "",
+              "tri_hex_id": 29
+            },
+            {
+              "coordinate": [
+                -6,
+                0
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "06_Hex3",
+              "terrain": "minor_suburban",
+              "tile_id": "06",
+              "tile_name": "minor_suburban",
+              "tri_hex_id": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "07",
+        "printed_number": 7,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "07_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "07_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_port",
+            "source_tile_name": "minor_Port",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "07_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "07_Hex1",
+              "terrain": "border",
+              "tile_id": "07",
+              "tile_name": "",
+              "tri_hex_id": 14
+            },
+            {
+              "coordinate": [
+                3,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "07_Hex2",
+              "terrain": "minor_Port",
+              "tile_id": "07",
+              "tile_name": "minor_Port",
+              "tri_hex_id": 14
+            },
+            {
+              "coordinate": [
+                4,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "07_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "07",
+              "tile_name": "",
+              "tri_hex_id": 14
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "07_Hex1",
+              "terrain": "border",
+              "tile_id": "07",
+              "tile_name": "",
+              "tri_hex_id": 17
+            },
+            {
+              "coordinate": [
+                2,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "07_Hex2",
+              "terrain": "minor_Port",
+              "tile_id": "07",
+              "tile_name": "minor_Port",
+              "tri_hex_id": 17
+            },
+            {
+              "coordinate": [
+                1,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "07_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "07",
+              "tile_name": "",
+              "tri_hex_id": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "08",
+        "printed_number": 8,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "08_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "08_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_tunneling",
+            "source_tile_name": "minor_Tunneling",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "08_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                5,
+                -3
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "08_Hex1",
+              "terrain": "mountain",
+              "tile_id": "08",
+              "tile_name": "",
+              "tri_hex_id": 15
+            },
+            {
+              "coordinate": [
+                5,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "08_Hex2",
+              "terrain": "minor_Tunneling",
+              "tile_id": "08",
+              "tile_name": "minor_Tunneling",
+              "tri_hex_id": 15
+            },
+            {
+              "coordinate": [
+                4,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "08_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "08",
+              "tile_name": "",
+              "tri_hex_id": 15
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                4
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "08_Hex1",
+              "terrain": "mountain",
+              "tile_id": "08",
+              "tile_name": "",
+              "tri_hex_id": 4
+            },
+            {
+              "coordinate": [
+                0,
+                3
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "08_Hex2",
+              "terrain": "minor_Tunneling",
+              "tile_id": "08",
+              "tile_name": "minor_Tunneling",
+              "tri_hex_id": 4
+            },
+            {
+              "coordinate": [
+                1,
+                3
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "08_Hex3",
+              "terrain": "capital_city",
+              "tile_id": "08",
+              "tile_name": "",
+              "tri_hex_id": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "09",
+        "printed_number": 9,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "09_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "09_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "09_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "minor_bridging",
+            "source_tile_name": "minor_bridging",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                2,
+                -4
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "09_Hex1",
+              "terrain": "water",
+              "tile_id": "09",
+              "tile_name": "",
+              "tri_hex_id": 17
+            },
+            {
+              "coordinate": [
+                2,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "09_Hex2",
+              "terrain": "plain",
+              "tile_id": "09",
+              "tile_name": "",
+              "tri_hex_id": 17
+            },
+            {
+              "coordinate": [
+                3,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "09_Hex3",
+              "terrain": "minor_bridging",
+              "tile_id": "09",
+              "tile_name": "minor_bridging",
+              "tri_hex_id": 17
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                4,
+                -2
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "09_Hex1",
+              "terrain": "water",
+              "tile_id": "09",
+              "tile_name": "",
+              "tri_hex_id": 12
+            },
+            {
+              "coordinate": [
+                4,
+                -3
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "09_Hex2",
+              "terrain": "plain",
+              "tile_id": "09",
+              "tile_name": "",
+              "tri_hex_id": 12
+            },
+            {
+              "coordinate": [
+                5,
+                -3
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "09_Hex3",
+              "terrain": "minor_bridging",
+              "tile_id": "09",
+              "tile_name": "minor_bridging",
+              "tri_hex_id": 12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "10",
+        "printed_number": 10,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "10_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "10_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "minor_overnight",
+            "source_tile_name": "minor_overnight",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "10_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -1,
+                -2
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "10_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "10",
+              "tile_name": "",
+              "tri_hex_id": 6
+            },
+            {
+              "coordinate": [
+                0,
+                -2
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "10_Hex2",
+              "terrain": "minor_overnight",
+              "tile_id": "10",
+              "tile_name": "minor_overnight",
+              "tri_hex_id": 6
+            },
+            {
+              "coordinate": [
+                -1,
+                -1
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "10_Hex3",
+              "terrain": "water",
+              "tile_id": "10",
+              "tile_name": "",
+              "tri_hex_id": 6
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                4,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "10_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "10",
+              "tile_name": "",
+              "tri_hex_id": 23
+            },
+            {
+              "coordinate": [
+                5,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "10_Hex2",
+              "terrain": "minor_overnight",
+              "tile_id": "10",
+              "tile_name": "minor_overnight",
+              "tri_hex_id": 23
+            },
+            {
+              "coordinate": [
+                4,
+                3
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "10_Hex3",
+              "terrain": "water",
+              "tile_id": "10",
+              "tile_name": "",
+              "tri_hex_id": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "11",
+        "printed_number": 11,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "11_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "11_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "11_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "minor_spacious",
+            "source_tile_name": "minor_spacious",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "11_Hex1",
+              "terrain": "water",
+              "tile_id": "11",
+              "tile_name": "",
+              "tri_hex_id": 31
+            },
+            {
+              "coordinate": [
+                1,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "11_Hex2",
+              "terrain": "plain",
+              "tile_id": "11",
+              "tile_name": "",
+              "tri_hex_id": 31
+            },
+            {
+              "coordinate": [
+                0,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "11_Hex3",
+              "terrain": "minor_spacious",
+              "tile_id": "11",
+              "tile_name": "minor_spacious",
+              "tri_hex_id": 31
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "11_Hex1",
+              "terrain": "water",
+              "tile_id": "11",
+              "tile_name": "",
+              "tri_hex_id": 24
+            },
+            {
+              "coordinate": [
+                -3,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "11_Hex2",
+              "terrain": "plain",
+              "tile_id": "11",
+              "tile_name": "",
+              "tri_hex_id": 24
+            },
+            {
+              "coordinate": [
+                -3,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "11_Hex3",
+              "terrain": "minor_spacious",
+              "tile_id": "11",
+              "tile_name": "minor_spacious",
+              "tri_hex_id": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "120",
+        "printed_number": 12,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "120_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "120_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "120_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 0,
+              "setup_tile": "120_Hex1",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 8
+            },
+            {
+              "coordinate": [
+                2,
+                -3
+              ],
+              "orientation": "sw",
+              "rotation": 0,
+              "setup_tile": "120_Hex2",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 8
+            },
+            {
+              "coordinate": [
+                2,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 0,
+              "setup_tile": "120_Hex3",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 8
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "120_Hex1",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 19
+            },
+            {
+              "coordinate": [
+                4,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "120_Hex2",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 19
+            },
+            {
+              "coordinate": [
+                3,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "120_Hex3",
+              "terrain": "plain",
+              "tile_id": "120",
+              "tile_name": "",
+              "tri_hex_id": 19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "121",
+        "printed_number": 12,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "121_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "121_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "121_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                4
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "121_Hex1",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 30
+            },
+            {
+              "coordinate": [
+                1,
+                4
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "121_Hex2",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 30
+            },
+            {
+              "coordinate": [
+                0,
+                5
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "121_Hex3",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 30
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                5
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "121_Hex1",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 25
+            },
+            {
+              "coordinate": [
+                -5,
+                6
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "121_Hex2",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 25
+            },
+            {
+              "coordinate": [
+                -5,
+                5
+              ],
+              "orientation": "ne",
+              "rotation": 0,
+              "setup_tile": "121_Hex3",
+              "terrain": "plain",
+              "tile_id": "121",
+              "tile_name": "",
+              "tri_hex_id": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "130",
+        "printed_number": 13,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "130_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "130_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "130_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                -3,
+                -1
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "130_Hex1",
+              "terrain": "plain",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 19
+            },
+            {
+              "coordinate": [
+                -3,
+                -2
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "130_Hex2",
+              "terrain": "water",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 19
+            },
+            {
+              "coordinate": [
+                -2,
+                -2
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "130_Hex3",
+              "terrain": "water",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 19
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "130_Hex1",
+              "terrain": "plain",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 8
+            },
+            {
+              "coordinate": [
+                2,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "130_Hex2",
+              "terrain": "water",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 8
+            },
+            {
+              "coordinate": [
+                3,
+                -4
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "130_Hex3",
+              "terrain": "water",
+              "tile_id": "130",
+              "tile_name": "",
+              "tri_hex_id": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "131",
+        "printed_number": 13,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "131_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "131_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "131_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -4
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "131_Hex1",
+              "terrain": "plain",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 16
+            },
+            {
+              "coordinate": [
+                4,
+                -5
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "131_Hex2",
+              "terrain": "water",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 16
+            },
+            {
+              "coordinate": [
+                4,
+                -4
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "131_Hex3",
+              "terrain": "water",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 16
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "131_Hex1",
+              "terrain": "plain",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 32
+            },
+            {
+              "coordinate": [
+                -5,
+                -1
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "131_Hex2",
+              "terrain": "water",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 32
+            },
+            {
+              "coordinate": [
+                -6,
+                -1
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "131_Hex3",
+              "terrain": "water",
+              "tile_id": "131",
+              "tile_name": "",
+              "tri_hex_id": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "140",
+        "printed_number": 14,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "140_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "140_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "140_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -3,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "140_Hex1",
+              "terrain": "mountain",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 25
+            },
+            {
+              "coordinate": [
+                -3,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "140_Hex2",
+              "terrain": "plain",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 25
+            },
+            {
+              "coordinate": [
+                -4,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "140_Hex3",
+              "terrain": "water",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 25
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                5,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "140_Hex1",
+              "terrain": "mountain",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 15
+            },
+            {
+              "coordinate": [
+                4,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "140_Hex2",
+              "terrain": "plain",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 15
+            },
+            {
+              "coordinate": [
+                5,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "140_Hex3",
+              "terrain": "water",
+              "tile_id": "140",
+              "tile_name": "",
+              "tri_hex_id": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "141",
+        "printed_number": 14,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "141_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "141_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "141_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                7
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "141_Hex1",
+              "terrain": "mountain",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 32
+            },
+            {
+              "coordinate": [
+                -1,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "141_Hex2",
+              "terrain": "plain",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 32
+            },
+            {
+              "coordinate": [
+                -1,
+                7
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "141_Hex3",
+              "terrain": "water",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 32
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                -4,
+                0
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "141_Hex1",
+              "terrain": "mountain",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 30
+            },
+            {
+              "coordinate": [
+                -4,
+                -1
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "141_Hex2",
+              "terrain": "plain",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 30
+            },
+            {
+              "coordinate": [
+                -3,
+                -1
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "141_Hex3",
+              "terrain": "water",
+              "tile_id": "141",
+              "tile_name": "",
+              "tri_hex_id": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "150",
+        "printed_number": 15,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "150_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "150_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "150_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                6,
+                -2
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "150_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 27
+            },
+            {
+              "coordinate": [
+                6,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "150_Hex2",
+              "terrain": "plain",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 27
+            },
+            {
+              "coordinate": [
+                5,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "150_Hex3",
+              "terrain": "mountain",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 27
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                4,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "150_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 13
+            },
+            {
+              "coordinate": [
+                5,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "150_Hex2",
+              "terrain": "plain",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 13
+            },
+            {
+              "coordinate": [
+                4,
+                -4
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "150_Hex3",
+              "terrain": "mountain",
+              "tile_id": "150",
+              "tile_name": "",
+              "tri_hex_id": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "151",
+        "printed_number": 15,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "151_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "151_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "151_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 1,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -1
+              ],
+              "orientation": "nw",
+              "rotation": 1,
+              "setup_tile": "151_Hex1",
+              "terrain": "capital_city",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 10
+            },
+            {
+              "coordinate": [
+                2,
+                0
+              ],
+              "orientation": "nw",
+              "rotation": 1,
+              "setup_tile": "151_Hex2",
+              "terrain": "plain",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 10
+            },
+            {
+              "coordinate": [
+                2,
+                -1
+              ],
+              "orientation": "nw",
+              "rotation": 1,
+              "setup_tile": "151_Hex3",
+              "terrain": "mountain",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 10
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                3,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "151_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 6
+            },
+            {
+              "coordinate": [
+                3,
+                0
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "151_Hex2",
+              "terrain": "plain",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 6
+            },
+            {
+              "coordinate": [
+                2,
+                0
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "151_Hex3",
+              "terrain": "mountain",
+              "tile_id": "151",
+              "tile_name": "",
+              "tri_hex_id": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "160",
+        "printed_number": 16,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "160_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "160_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "160_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "160_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 7
+            },
+            {
+              "coordinate": [
+                1,
+                -4
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "160_Hex2",
+              "terrain": "plain",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 7
+            },
+            {
+              "coordinate": [
+                1,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "160_Hex3",
+              "terrain": "plain",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 7
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                1
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "160_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 28
+            },
+            {
+              "coordinate": [
+                -5,
+                2
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "160_Hex2",
+              "terrain": "plain",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 28
+            },
+            {
+              "coordinate": [
+                -6,
+                2
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "160_Hex3",
+              "terrain": "plain",
+              "tile_id": "160",
+              "tile_name": "",
+              "tri_hex_id": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "161",
+        "printed_number": 16,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "161_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "161_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "161_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                4,
+                -1
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "161_Hex1",
+              "terrain": "capital_city",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 11
+            },
+            {
+              "coordinate": [
+                4,
+                0
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "161_Hex2",
+              "terrain": "plain",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 11
+            },
+            {
+              "coordinate": [
+                3,
+                0
+              ],
+              "orientation": "sw",
+              "rotation": 1,
+              "setup_tile": "161_Hex3",
+              "terrain": "plain",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 11
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                6,
+                -4
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "161_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 18
+            },
+            {
+              "coordinate": [
+                5,
+                -4
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "161_Hex2",
+              "terrain": "plain",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 18
+            },
+            {
+              "coordinate": [
+                6,
+                -5
+              ],
+              "orientation": "sw",
+              "rotation": 2,
+              "setup_tile": "161_Hex3",
+              "terrain": "plain",
+              "tile_id": "161",
+              "tile_name": "",
+              "tri_hex_id": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "170",
+        "printed_number": 17,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "170_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "170_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "170_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                -1
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "170_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 5
+            },
+            {
+              "coordinate": [
+                -2,
+                0
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "170_Hex2",
+              "terrain": "mountain",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 5
+            },
+            {
+              "coordinate": [
+                -3,
+                0
+              ],
+              "orientation": "se",
+              "rotation": 2,
+              "setup_tile": "170_Hex3",
+              "terrain": "plain",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 5
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "170_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 3
+            },
+            {
+              "coordinate": [
+                1,
+                2
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "170_Hex2",
+              "terrain": "mountain",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 3
+            },
+            {
+              "coordinate": [
+                0,
+                2
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "170_Hex3",
+              "terrain": "plain",
+              "tile_id": "170",
+              "tile_name": "",
+              "tri_hex_id": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "180",
+        "printed_number": 18,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "180_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "180_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "180_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "180_Hex1",
+              "terrain": "plain",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 1
+            },
+            {
+              "coordinate": [
+                -1,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "180_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 1
+            },
+            {
+              "coordinate": [
+                -2,
+                3
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "180_Hex3",
+              "terrain": "water",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 1
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                2,
+                -1
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "180_Hex1",
+              "terrain": "plain",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 7
+            },
+            {
+              "coordinate": [
+                2,
+                -2
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "180_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 7
+            },
+            {
+              "coordinate": [
+                3,
+                -2
+              ],
+              "orientation": "ss",
+              "rotation": 0,
+              "setup_tile": "180_Hex3",
+              "terrain": "water",
+              "tile_id": "180",
+              "tile_name": "",
+              "tri_hex_id": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "190",
+        "printed_number": 19,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "190_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "190_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "190_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                5
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "190_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 29
+            },
+            {
+              "coordinate": [
+                -1,
+                5
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "190_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 29
+            },
+            {
+              "coordinate": [
+                -2,
+                6
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "190_Hex3",
+              "terrain": "plain",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 29
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "190_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 9
+            },
+            {
+              "coordinate": [
+                1,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "190_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 9
+            },
+            {
+              "coordinate": [
+                1,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "190_Hex3",
+              "terrain": "plain",
+              "tile_id": "190",
+              "tile_name": "",
+              "tri_hex_id": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "200",
+        "printed_number": 20,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "200_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "200_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "200_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "200_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 22
+            },
+            {
+              "coordinate": [
+                2,
+                -6
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "200_Hex2",
+              "terrain": "mountain",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 22
+            },
+            {
+              "coordinate": [
+                1,
+                -5
+              ],
+              "orientation": "ss",
+              "rotation": 1,
+              "setup_tile": "200_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 22
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                -1,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "200_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 16
+            },
+            {
+              "coordinate": [
+                -1,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "200_Hex2",
+              "terrain": "mountain",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 16
+            },
+            {
+              "coordinate": [
+                -2,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "200_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "200",
+              "tile_name": "",
+              "tri_hex_id": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "210",
+        "printed_number": 21,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "210_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "210_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "210_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                5,
+                0
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "210_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 26
+            },
+            {
+              "coordinate": [
+                6,
+                0
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "210_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 26
+            },
+            {
+              "coordinate": [
+                5,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "210_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 26
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                -3,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "210_Hex1",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 31
+            },
+            {
+              "coordinate": [
+                -4,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "210_Hex2",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 31
+            },
+            {
+              "coordinate": [
+                -3,
+                -3
+              ],
+              "orientation": "se",
+              "rotation": 0,
+              "setup_tile": "210_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "210",
+              "tile_name": "",
+              "tri_hex_id": 31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "220",
+        "printed_number": 22,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "220_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "220_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "220_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "mountain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                4
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "220_Hex1",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 13
+            },
+            {
+              "coordinate": [
+                -5,
+                3
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "220_Hex2",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 13
+            },
+            {
+              "coordinate": [
+                -4,
+                3
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "220_Hex3",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 13
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                2,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "220_Hex1",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 5
+            },
+            {
+              "coordinate": [
+                3,
+                1
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "220_Hex2",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 5
+            },
+            {
+              "coordinate": [
+                2,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 0,
+              "setup_tile": "220_Hex3",
+              "terrain": "mountain",
+              "tile_id": "220",
+              "tile_name": "",
+              "tri_hex_id": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "230",
+        "printed_number": 23,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "230_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "230_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "230_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -1,
+                -4
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "230_Hex1",
+              "terrain": "border",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 18
+            },
+            {
+              "coordinate": [
+                0,
+                -4
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "230_Hex2",
+              "terrain": "plain",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 18
+            },
+            {
+              "coordinate": [
+                -1,
+                -3
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "230_Hex3",
+              "terrain": "plain",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 18
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "230_Hex1",
+              "terrain": "border",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 21
+            },
+            {
+              "coordinate": [
+                0,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "230_Hex2",
+              "terrain": "plain",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 21
+            },
+            {
+              "coordinate": [
+                1,
+                4
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "230_Hex3",
+              "terrain": "plain",
+              "tile_id": "230",
+              "tile_name": "",
+              "tri_hex_id": 21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "240",
+        "printed_number": 24,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "240_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "240_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "water",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "240_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 0,
+          "hexes": [
+            {
+              "coordinate": [
+                1,
+                2
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "240_Hex1",
+              "terrain": "border",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 3
+            },
+            {
+              "coordinate": [
+                0,
+                2
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "240_Hex2",
+              "terrain": "water",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 3
+            },
+            {
+              "coordinate": [
+                1,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 1,
+              "setup_tile": "240_Hex3",
+              "terrain": "plain",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 3
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -3,
+                1
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "240_Hex1",
+              "terrain": "border",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 2
+            },
+            {
+              "coordinate": [
+                -2,
+                1
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "240_Hex2",
+              "terrain": "water",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 2
+            },
+            {
+              "coordinate": [
+                -3,
+                2
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "240_Hex3",
+              "terrain": "plain",
+              "tile_id": "240",
+              "tile_name": "",
+              "tri_hex_id": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "250",
+        "printed_number": 25,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "250_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "250_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "250_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "standard_city",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                0
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex1",
+              "terrain": "border",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            },
+            {
+              "coordinate": [
+                0,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex2",
+              "terrain": "plain",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            },
+            {
+              "coordinate": [
+                -1,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 2,
+          "hexes": [
+            {
+              "coordinate": [
+                0,
+                0
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex1",
+              "terrain": "border",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            },
+            {
+              "coordinate": [
+                0,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex2",
+              "terrain": "plain",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            },
+            {
+              "coordinate": [
+                -1,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 0,
+              "setup_tile": "250_Hex3",
+              "terrain": "standard_city",
+              "tile_id": "250",
+              "tile_name": "",
+              "tri_hex_id": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "260",
+        "printed_number": 26,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "260_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "260_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "plain",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "260_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "offboard",
+            "source_tile_name": "offboard01",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                -1
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "260_Hex1",
+              "terrain": "border",
+              "tile_id": "260",
+              "tile_name": "",
+              "tri_hex_id": 21
+            },
+            {
+              "coordinate": [
+                -4,
+                -2
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "260_Hex2",
+              "terrain": "plain",
+              "tile_id": "260",
+              "tile_name": "",
+              "tri_hex_id": 21
+            },
+            {
+              "coordinate": [
+                -4,
+                -1
+              ],
+              "orientation": "se",
+              "rotation": 1,
+              "setup_tile": "260_Hex3",
+              "terrain": "offboard",
+              "tile_id": "260",
+              "tile_name": "offboard01",
+              "tri_hex_id": 21
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                7
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "260_Hex1",
+              "terrain": "border",
+              "tile_id": "260",
+              "tile_name": "",
+              "tri_hex_id": 22
+            },
+            {
+              "coordinate": [
+                -2,
+                6
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "260_Hex2",
+              "terrain": "plain",
+              "tile_id": "260",
+              "tile_name": "",
+              "tri_hex_id": 22
+            },
+            {
+              "coordinate": [
+                -1,
+                6
+              ],
+              "orientation": "ne",
+              "rotation": 1,
+              "setup_tile": "260_Hex3",
+              "terrain": "offboard",
+              "tile_id": "260",
+              "tile_name": "offboard01",
+              "tri_hex_id": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "270",
+        "printed_number": 27,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "270_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "270_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "offboard",
+            "source_tile_name": "offboard02",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "270_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "offboard",
+            "source_tile_name": "offboard03",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -7,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "270_Hex1",
+              "terrain": "border",
+              "tile_id": "270",
+              "tile_name": "",
+              "tri_hex_id": 28
+            },
+            {
+              "coordinate": [
+                -6,
+                5
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "270_Hex2",
+              "terrain": "offboard",
+              "tile_id": "270",
+              "tile_name": "offboard02",
+              "tri_hex_id": 28
+            },
+            {
+              "coordinate": [
+                -6,
+                6
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "270_Hex3",
+              "terrain": "offboard",
+              "tile_id": "270",
+              "tile_name": "offboard03",
+              "tri_hex_id": 28
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 3,
+          "hexes": [
+            {
+              "coordinate": [
+                -1,
+                -3
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "270_Hex1",
+              "terrain": "border",
+              "tile_id": "270",
+              "tile_name": "",
+              "tri_hex_id": 10
+            },
+            {
+              "coordinate": [
+                0,
+                -3
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "270_Hex2",
+              "terrain": "offboard",
+              "tile_id": "270",
+              "tile_name": "offboard02",
+              "tri_hex_id": 10
+            },
+            {
+              "coordinate": [
+                -1,
+                -2
+              ],
+              "orientation": "ne",
+              "rotation": 2,
+              "setup_tile": "270_Hex3",
+              "terrain": "offboard",
+              "tile_id": "270",
+              "tile_name": "offboard03",
+              "tri_hex_id": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fixed": {
+        "generator_tile_id": "280",
+        "printed_number": 28,
+        "quantity": 1,
+        "hexes": [
+          {
+            "id": "280_Hex1",
+            "axial": [
+              0,
+              0
+            ],
+            "terrain": "border",
+            "source_tile_name": "",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "280_Hex2",
+            "axial": [
+              -1,
+              0
+            ],
+            "terrain": "offboard",
+            "source_tile_name": "offboard04",
+            "canonical_facing": "se"
+          },
+          {
+            "id": "280_Hex3",
+            "axial": [
+              0,
+              -1
+            ],
+            "terrain": "offboard",
+            "source_tile_name": "offboard05",
+            "canonical_facing": "se"
+          }
+        ]
+      },
+      "observations": [
+        {
+          "seed": 3722698,
+          "canonical_rotation_steps": 4,
+          "hexes": [
+            {
+              "coordinate": [
+                -5,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "280_Hex1",
+              "terrain": "border",
+              "tile_id": "280",
+              "tile_name": "",
+              "tri_hex_id": 20
+            },
+            {
+              "coordinate": [
+                -4,
+                0
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "280_Hex2",
+              "terrain": "offboard",
+              "tile_id": "280",
+              "tile_name": "offboard04",
+              "tri_hex_id": 20
+            },
+            {
+              "coordinate": [
+                -4,
+                1
+              ],
+              "orientation": "nn",
+              "rotation": 2,
+              "setup_tile": "280_Hex3",
+              "terrain": "offboard",
+              "tile_id": "280",
+              "tile_name": "offboard05",
+              "tri_hex_id": 20
+            }
+          ]
+        },
+        {
+          "seed": 3722699,
+          "canonical_rotation_steps": 5,
+          "hexes": [
+            {
+              "coordinate": [
+                -2,
+                3
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "280_Hex1",
+              "terrain": "border",
+              "tile_id": "280",
+              "tile_name": "",
+              "tri_hex_id": 1
+            },
+            {
+              "coordinate": [
+                -2,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "280_Hex2",
+              "terrain": "offboard",
+              "tile_id": "280",
+              "tile_name": "offboard04",
+              "tri_hex_id": 1
+            },
+            {
+              "coordinate": [
+                -1,
+                2
+              ],
+              "orientation": "nw",
+              "rotation": 2,
+              "setup_tile": "280_Hex3",
+              "terrain": "offboard",
+              "tile_id": "280",
+              "tile_name": "offboard05",
+              "tri_hex_id": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

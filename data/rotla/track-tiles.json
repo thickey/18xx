@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "source": "http://www.fwtwr.com/18xx/info/inv-rotla.asp",
+  "id_warning": "FWTWR reference IDs, not printed game IDs. Engine geometry/revenues have not been verified, including numeric IDs.",
+  "totals": {
+    "yellow": 55,
+    "green": 43,
+    "purple": 27,
+    "grey": 5,
+    "blue": 5
+  },
+  "tiles": [
+    {
+      "id": "5",
+      "quantity": 5,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0005_1.gif"
+    },
+    {
+      "id": "6",
+      "quantity": 7,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0006_1.gif"
+    },
+    {
+      "id": "7",
+      "quantity": 6,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0007_1.gif"
+    },
+    {
+      "id": "8",
+      "quantity": 14,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0008_1.gif"
+    },
+    {
+      "id": "9",
+      "quantity": 13,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0009_1.gif"
+    },
+    {
+      "id": "57",
+      "quantity": 7,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0057_1.gif"
+    },
+    {
+      "id": "291",
+      "quantity": 1,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0291a_1.gif"
+    },
+    {
+      "id": "292",
+      "quantity": 1,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0292a_1.gif"
+    },
+    {
+      "id": "293",
+      "quantity": 1,
+      "source_color": "yellow",
+      "game_color": "yellow",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0293a_1.gif"
+    },
+    {
+      "id": "14",
+      "quantity": 4,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0014_1.gif"
+    },
+    {
+      "id": "15",
+      "quantity": 5,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0015_1.gif"
+    },
+    {
+      "id": "16",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0016_1.gif"
+    },
+    {
+      "id": "17",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0017_1.gif"
+    },
+    {
+      "id": "19",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0019_1.gif"
+    },
+    {
+      "id": "20",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0020_1.gif"
+    },
+    {
+      "id": "21",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0021_1.gif"
+    },
+    {
+      "id": "22",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0022_1.gif"
+    },
+    {
+      "id": "23",
+      "quantity": 4,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0023_1.gif"
+    },
+    {
+      "id": "24",
+      "quantity": 4,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0024_1.gif"
+    },
+    {
+      "id": "25",
+      "quantity": 2,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0025_1.gif"
+    },
+    {
+      "id": "26",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0026_1.gif"
+    },
+    {
+      "id": "27",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0027_1.gif"
+    },
+    {
+      "id": "28",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0028_1.gif"
+    },
+    {
+      "id": "29",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0029_1.gif"
+    },
+    {
+      "id": "30",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0030_1.gif"
+    },
+    {
+      "id": "31",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0031_1.gif"
+    },
+    {
+      "id": "294",
+      "quantity": 2,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0294a_1.gif"
+    },
+    {
+      "id": "295",
+      "quantity": 2,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0295a_1.gif"
+    },
+    {
+      "id": "296",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0296a_1.gif"
+    },
+    {
+      "id": "619",
+      "quantity": 4,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0619_1.gif"
+    },
+    {
+      "id": "624",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0624_1.gif"
+    },
+    {
+      "id": "LA1",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA1_1.gif"
+    },
+    {
+      "id": "LA2",
+      "quantity": 1,
+      "source_color": "green",
+      "game_color": "green",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA2_1.gif"
+    },
+    {
+      "id": "39",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0039_1.gif"
+    },
+    {
+      "id": "40",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0040_1.gif"
+    },
+    {
+      "id": "41",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0041_1.gif"
+    },
+    {
+      "id": "42",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0042_1.gif"
+    },
+    {
+      "id": "43",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0043_1.gif"
+    },
+    {
+      "id": "44",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0044_1.gif"
+    },
+    {
+      "id": "45",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0045_1.gif"
+    },
+    {
+      "id": "46",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0046_1.gif"
+    },
+    {
+      "id": "47",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0047_1.gif"
+    },
+    {
+      "id": "70",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0070_1.gif"
+    },
+    {
+      "id": "125",
+      "quantity": 6,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0125a_1.gif"
+    },
+    {
+      "id": "297",
+      "quantity": 2,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0297a_1.gif"
+    },
+    {
+      "id": "LA3",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA3_1.gif"
+    },
+    {
+      "id": "LA4",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA4_1.gif"
+    },
+    {
+      "id": "LA5",
+      "quantity": 1,
+      "source_color": "brown",
+      "game_color": "purple",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA5_1.gif"
+    },
+    {
+      "id": "51",
+      "quantity": 3,
+      "source_color": "grey",
+      "game_color": "grey",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0051_1.gif"
+    },
+    {
+      "id": "LA6",
+      "quantity": 1,
+      "source_color": "grey",
+      "game_color": "grey",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA6_1.gif"
+    },
+    {
+      "id": "LA7",
+      "quantity": 1,
+      "source_color": "grey",
+      "game_color": "grey",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/LA7_1.gif"
+    },
+    {
+      "id": "721",
+      "quantity": 2,
+      "source_color": "blue",
+      "game_color": "blue",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0721a_1.gif"
+    },
+    {
+      "id": "722",
+      "quantity": 2,
+      "source_color": "blue",
+      "game_color": "blue",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0722a_1.gif"
+    },
+    {
+      "id": "723",
+      "quantity": 1,
+      "source_color": "blue",
+      "game_color": "blue",
+      "reference_image_url": "http://www.fwtwr.com/18xx/tiles/tp/0723a_1.gif"
+    }
+  ]
+}

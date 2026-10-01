@@ -1,0 +1,1563 @@
+{
+  "schema_version": 1,
+  "runtime_version": "real_v1",
+  "sources": [
+    "MAP-INVENTORY.md",
+    "map-pieces.json",
+    "tile-2-review.json",
+    "tile-7-review.json",
+    "tile-9-review.json",
+    "tile-11-review.json",
+    "tile-26-review.json",
+    "tile-27-review.json",
+    "tile-28-review.json",
+    "RailwaysRulebook-CleanFonts.pdf pages 3, 6\u20138"
+  ],
+  "coordinate_transform": "Source canonical axial rotated three steps; Hex1/2/3 order and handedness preserved. Special tracks use approved review pose.",
+  "destination_card": "Recommended 30/40/70/100, applies to all destinations.",
+  "pieces": [
+    {
+      "id": "01",
+      "number": 1,
+      "cells": [
+        {
+          "id": "01_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "minor_expansive",
+          "home": "EA",
+          "home_name": "Expansive"
+        },
+        {
+          "id": "01_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "01_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "number": 2,
+      "cells": [
+        {
+          "id": "02_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mining",
+          "home": "EM",
+          "home_name": "Eastern Mining"
+        },
+        {
+          "id": "02_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "02_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "number": 3,
+      "cells": [
+        {
+          "id": "03_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "03_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "minor_agricultural",
+          "home": "AG",
+          "home_name": "Agricultural"
+        },
+        {
+          "id": "03_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "number": 4,
+      "cells": [
+        {
+          "id": "04_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "04_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "minor_resourceful",
+          "home": "RE",
+          "home_name": "Resourceful"
+        },
+        {
+          "id": "04_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "number": 5,
+      "cells": [
+        {
+          "id": "05_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "05_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "minor_express",
+          "home": "ER",
+          "home_name": "Express"
+        },
+        {
+          "id": "05_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "number": 6,
+      "cells": [
+        {
+          "id": "06_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "06_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "06_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "minor_suburban",
+          "home": "SU",
+          "home_name": "Suburban"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "number": 7,
+      "cells": [
+        {
+          "id": "07_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "07_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "port",
+          "home": "NP",
+          "home_name": "Northern Port"
+        },
+        {
+          "id": "07_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "number": 8,
+      "cells": [
+        {
+          "id": "08_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "08_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "minor_tunneling",
+          "home": "TU",
+          "home_name": "Tunneling"
+        },
+        {
+          "id": "08_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "number": 9,
+      "cells": [
+        {
+          "id": "09_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "09_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "09_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "bridging",
+          "home": "BR",
+          "home_name": "Bridging"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "number": 10,
+      "cells": [
+        {
+          "id": "10_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "10_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "minor_overnight",
+          "home": "OV",
+          "home_name": "Overnight"
+        },
+        {
+          "id": "10_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "number": 11,
+      "cells": [
+        {
+          "id": "11_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "11_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "11_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "spacious",
+          "home": "SP",
+          "home_name": "Spacious"
+        }
+      ]
+    },
+    {
+      "id": "120",
+      "number": 12,
+      "cells": [
+        {
+          "id": "120_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "120_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "120_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "121",
+      "number": 12,
+      "cells": [
+        {
+          "id": "121_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "121_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "121_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "130",
+      "number": 13,
+      "cells": [
+        {
+          "id": "130_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "130_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "130_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "131",
+      "number": 13,
+      "cells": [
+        {
+          "id": "131_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "131_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "131_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "140",
+      "number": 14,
+      "cells": [
+        {
+          "id": "140_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "140_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "140_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "141",
+      "number": 14,
+      "cells": [
+        {
+          "id": "141_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "141_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "141_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "150",
+      "number": 15,
+      "cells": [
+        {
+          "id": "150_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "150_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "150_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "151",
+      "number": 15,
+      "cells": [
+        {
+          "id": "151_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "151_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "151_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "160",
+      "number": 16,
+      "cells": [
+        {
+          "id": "160_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "160_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "160_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "161",
+      "number": 16,
+      "cells": [
+        {
+          "id": "161_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "161_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "161_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "170",
+      "number": 17,
+      "cells": [
+        {
+          "id": "170_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "170_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "170_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "180",
+      "number": 18,
+      "cells": [
+        {
+          "id": "180_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "180_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "180_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "190",
+      "number": 19,
+      "cells": [
+        {
+          "id": "190_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "190_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "190_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "200",
+      "number": 20,
+      "cells": [
+        {
+          "id": "200_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "200_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "200_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "210",
+      "number": 21,
+      "cells": [
+        {
+          "id": "210_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "210_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "210_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "220",
+      "number": 22,
+      "cells": [
+        {
+          "id": "220_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "220_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "220_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "mountain",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "230",
+      "number": 23,
+      "cells": [
+        {
+          "id": "230_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "230_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "230_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "240",
+      "number": 24,
+      "cells": [
+        {
+          "id": "240_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "240_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "water",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "240_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "250",
+      "number": 25,
+      "cells": [
+        {
+          "id": "250_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "250_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "250_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "city",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "260",
+      "number": 26,
+      "cells": [
+        {
+          "id": "260_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "260_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "blank",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "260_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "offboard",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "270",
+      "number": 27,
+      "cells": [
+        {
+          "id": "270_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "270_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "offboard",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "270_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "offboard_join",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    },
+    {
+      "id": "280",
+      "number": 28,
+      "cells": [
+        {
+          "id": "280_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "border",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "280_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "offboard",
+          "home": null,
+          "home_name": null
+        },
+        {
+          "id": "280_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "terrain": "offboard_join",
+          "home": null,
+          "home_name": null
+        }
+      ]
+    }
+  ],
+  "special": {
+    "9": {
+      "revenue": 30,
+      "slots": 1,
+      "exits": [
+        3,
+        4,
+        5,
+        0
+      ]
+    },
+    "11": {
+      "revenue": 20,
+      "slots": 2,
+      "exits": [
+        4,
+        5,
+        0,
+        1
+      ]
+    },
+    "26": {
+      "offboard_exits": {
+        "offboard": [
+          4
+        ]
+      }
+    },
+    "27": {
+      "offboard_exits": {
+        "offboard": [
+          4
+        ],
+        "offboard_join": [
+          5,
+          1
+        ]
+      }
+    },
+    "28": {
+      "offboard_exits": {
+        "offboard": [
+          4,
+          0
+        ],
+        "offboard_join": [
+          1
+        ]
+      }
+    }
+  },
+  "ordinary_cell_rules": {
+    "basic_city": {
+      "revenue": 0,
+      "slots": 1,
+      "track": []
+    },
+    "ordinary_minor_home": {
+      "revenue": 0,
+      "slots": 1,
+      "track": []
+    },
+    "mountain_cost": 40,
+    "tunneling_home_mountain_cost": 40,
+    "water": "Blue, not ordinary land; bridge track is handled after setup.",
+    "capital": "One basic city, revenue 0, one slot, C label; no preprinted track. Excludes minor home cells."
+  },
+  "short_removed_ids": [
+    "09",
+    "10",
+    "11",
+    "210",
+    "260",
+    "121",
+    "131",
+    "141"
+  ],
+  "special_approved_sources": {
+    "2": {
+      "printed_tile": 2,
+      "status": "User-approved prototype rendering and orientation",
+      "home_company": "EM",
+      "color": "yellow",
+      "label": "M",
+      "pose": [
+        "mining",
+        "plain",
+        "mountain"
+      ],
+      "cities": [
+        {
+          "revenue": 30,
+          "home": true,
+          "loc": 5.5
+        },
+        {
+          "revenue": 20,
+          "loc": 2.5
+        }
+      ],
+      "paths": [
+        "city 0 to city 1",
+        "edge 5 to city 0"
+      ],
+      "orientation": "Cities point toward the shared plain/mountain boundary, home nearest that boundary.",
+      "approval": "User confirmed: Looks good"
+    },
+    "7": {
+      "printed_tile": 7,
+      "status": "User-approved rendering with P label centered between the two water edges",
+      "pose": [
+        "border",
+        "port",
+        "standard_city"
+      ],
+      "home_company": "NP",
+      "color": "yellow",
+      "label": "P",
+      "clockwise_edges_at_rotation_zero": [
+        {
+          "edge": 2,
+          "kind": "water",
+          "faces": "border"
+        },
+        {
+          "edge": 3,
+          "kind": "water"
+        },
+        {
+          "edge": 4,
+          "city": 1
+        },
+        {
+          "edge": 5,
+          "city": 1
+        },
+        {
+          "edge": 0,
+          "city": 0
+        },
+        {
+          "edge": 1,
+          "kind": "plain",
+          "faces": "standard_city"
+        }
+      ],
+      "cities": [
+        {
+          "home": true,
+          "revenue": 30,
+          "slots": 1
+        },
+        {
+          "home": false,
+          "revenue": 30,
+          "slots": 1
+        }
+      ],
+      "cities_connected": false,
+      "standard_city_revenue": "Unconfirmed; prototype zero placeholder",
+      "setup_rules": [
+        "Minimum three shared edges after first piece",
+        "No contact with border cells of another piece; borders are unreachable during gameplay"
+      ]
+    },
+    "9": {
+      "printed_tile": 9,
+      "generator_tile_id": "09",
+      "status": "User-approved: prototype rendering matches the physical tile",
+      "source": "User description and confirmation in this task",
+      "hexes": [
+        {
+          "source_hex": "09_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "water"
+        },
+        {
+          "source_hex": "09_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "plain"
+        },
+        {
+          "source_hex": "09_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "home_company": "BR",
+          "city_count": 1,
+          "city_slots": 1,
+          "revenue": 30,
+          "all_branches_connect_to_city": true,
+          "flat_engine_exits_at_rotation_zero": [
+            3,
+            4,
+            5,
+            0
+          ],
+          "exit_description": "Toward water, toward plain, then the next two consecutive edges on the plain side",
+          "engine_code": "city=revenue:30,slots:1;path=a:3,b:_0;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0"
+        }
+      ],
+      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+      "review_scope": "Home reservation and geometry only; no train operations, bridge-laying ability or full official setup rules are introduced.",
+      "approval": {
+        "source": "User visual review of the working prototype in this task",
+        "confirmed": [
+          "Relative positions of water, plain and Bridging home",
+          "Four consecutive exits connecting to the same city",
+          "One home city slot",
+          "Revenue 30"
+        ]
+      }
+    },
+    "11": {
+      "printed_tile": 11,
+      "generator_tile_id": "11",
+      "status": "User-approved rendering, with home marker moved to the other slot to match the printed tile",
+      "source": "User description and clarification in this task",
+      "hexes": [
+        {
+          "source_hex": "11_Hex1",
+          "axial": [
+            0,
+            0
+          ],
+          "terrain": "water"
+        },
+        {
+          "source_hex": "11_Hex2",
+          "axial": [
+            1,
+            0
+          ],
+          "terrain": "plain"
+        },
+        {
+          "source_hex": "11_Hex3",
+          "axial": [
+            0,
+            1
+          ],
+          "home_company": "SP",
+          "color": "gray",
+          "upgradable": false,
+          "city_count": 1,
+          "city_slots": 2,
+          "reserved_slots": 1,
+          "home_slot_index": 1,
+          "revenue": 20,
+          "all_branches_connect_to_city": true,
+          "flat_engine_exits_at_rotation_zero": [
+            4,
+            5,
+            0,
+            1
+          ],
+          "exit_description": "Toward plain, then the next three consecutive outer edges away from water; no exit toward water",
+          "engine_code": "city=revenue:20,slots:2;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0;path=a:1,b:_0"
+        }
+      ],
+      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+      "review_scope": "Home reservation, geometry and non-upgradability only. Spacious's train-limit ability is not implemented."
+    },
+    "26": {
+      "printed_tile": 26,
+      "status": "User-described; awaiting visual approval",
+      "color": "red",
+      "revenue_values": [
+        30,
+        40,
+        70,
+        100
+      ],
+      "revenue_cluster_colors": [
+        "yellow",
+        "green",
+        "brown",
+        "gray"
+      ],
+      "clusters": 1,
+      "clockwise_external_entrances": null,
+      "entrance_description": "From plain",
+      "engine_revenue_note": "Temporary phase revenues; one shared destination group for adjoining offboards",
+      "preview_revenue_cluster": false
+    },
+    "27": {
+      "printed_tile": 27,
+      "status": "User-described; awaiting visual approval",
+      "color": "red",
+      "revenue_values": [
+        30,
+        40,
+        70,
+        100
+      ],
+      "revenue_cluster_colors": [
+        "yellow",
+        "green",
+        "brown",
+        "gray"
+      ],
+      "clusters": 1,
+      "clockwise_external_entrances": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "entrance_description": "Clockwise from border; first four edges on cell 2, last four on cell 3",
+      "engine_revenue_note": "Temporary phase revenues; one shared destination group for adjoining offboards",
+      "preview_revenue_cluster": false
+    },
+    "28": {
+      "printed_tile": 28,
+      "status": "User-described; awaiting visual approval",
+      "color": "red",
+      "revenue_values": [
+        30,
+        40,
+        70,
+        100
+      ],
+      "revenue_cluster_colors": [
+        "yellow",
+        "green",
+        "brown",
+        "gray"
+      ],
+      "clusters": 1,
+      "clockwise_external_entrances": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "entrance_description": "Clockwise from border; first four edges on cell 2, last four on cell 3",
+      "engine_revenue_note": "Temporary phase revenues; one shared destination group for adjoining offboards",
+      "preview_revenue_cluster": false
+    }
+  }
+}

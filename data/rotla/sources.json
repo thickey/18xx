@@ -1,0 +1,37 @@
+{
+  "retrieved_date": "2026-09-26",
+  "map_api": {
+    "url_template": "https://lost-atlas-api.fly.dev/boards/{seed}?variant=std&random_minors=false&random_start_tile=false&landmarks=false",
+    "method": "GET",
+    "authentication": "Bearer key from user-supplied URL; deliberately not stored",
+    "client_version_observed": "v1.4.0 production",
+    "client_script_url": "https://lost-atlas-ui.fly.dev/_next/static/chunks/app/page-aa3c13d4e02c338f.js"
+  },
+  "inventory_url": "http://www.fwtwr.com/18xx/info/inv-rotla.asp",
+  "upgrade_chart_url": "http://www.fwtwr.com/18xx/info/tuc-rotla.asp",
+  "rulebook": {
+    "path": "RailwaysRulebook-CleanFonts.pdf",
+    "sha256": "e7106b6049505ad721999e981df07b13b09ef4fd0405c48ec3b733bffdf6e2e9",
+    "edition": "Copyright 2024; revision not conclusively identified",
+    "component_sheet_pdf_page": 3,
+    "component_sheet_printed_page": 2
+  },
+  "snapshots": [
+    {
+      "path": "sources/board-3722698.json",
+      "sha256": "b5f1f8eb51b10260f6efa4d5cd1370e041e008a68350b938245f8dab93e5693b"
+    },
+    {
+      "path": "sources/board-3722699.json",
+      "sha256": "c5c9e63dbd844821a717e326ed857ca056423d5b98cdf71013b59fa3e52bf6d1"
+    },
+    {
+      "path": "sources/inventory.html",
+      "sha256": "3a90ea894dd96f30e86910eb8b19c5d4b0a54f4713625000b2894301e14e374c"
+    },
+    {
+      "path": "sources/upgrades.html",
+      "sha256": "4cb08d88bfc0ea77efc90a58b3e8c8596703c81fc598b51838ca7edf9d3c7290"
+    }
+  ]
+}

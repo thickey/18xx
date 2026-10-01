@@ -1,0 +1,28 @@
+{
+  "printed_tile": 11,
+  "generator_tile_id": "11",
+  "status": "User-approved rendering, with home marker moved to the other slot to match the printed tile",
+  "source": "User description and clarification in this task",
+  "hexes": [
+    {"source_hex": "11_Hex1", "axial": [0, 0], "terrain": "water"},
+    {"source_hex": "11_Hex2", "axial": [1, 0], "terrain": "plain"},
+    {
+      "source_hex": "11_Hex3",
+      "axial": [0, 1],
+      "home_company": "SP",
+      "color": "gray",
+      "upgradable": false,
+      "city_count": 1,
+      "city_slots": 2,
+      "reserved_slots": 1,
+      "home_slot_index": 1,
+      "revenue": 20,
+      "all_branches_connect_to_city": true,
+      "flat_engine_exits_at_rotation_zero": [4, 5, 0, 1],
+      "exit_description": "Toward plain, then the next three consecutive outer edges away from water; no exit toward water",
+      "engine_code": "city=revenue:20,slots:2;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0;path=a:1,b:_0"
+    }
+  ],
+  "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+  "review_scope": "Home reservation, geometry and non-upgradability only. Spacious's train-limit ability is not implemented."
+}

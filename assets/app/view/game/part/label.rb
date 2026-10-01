@@ -8,6 +8,7 @@ module View
       # letter label, like "Z", "H", "OO"
       class Label < Base
         needs :label
+        needs :position, default: nil
 
         # left of center
         SINGLE_CITY_ONE_SLOT = {
@@ -189,6 +190,8 @@ module View
         ].freeze
 
         def preferred_render_locations
+          return [@position] if @position
+
           if @tile.city_towns.one?
             if @tile.cities.one? && (@tile.cities.first.slots > 1)
               [P_LEFT_CORNER[layout], P_TOP_LEFT_CORNER[layout], P_TOP_RIGHT_CORNER[layout], P_BOTTOM_LEFT_CORNER[layout]]

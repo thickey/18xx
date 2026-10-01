@@ -1,0 +1,31 @@
+{
+  "printed_tile": 27,
+  "status": "User-described; awaiting visual approval",
+  "color": "red",
+  "revenue_values": [
+    30,
+    40,
+    70,
+    100
+  ],
+  "revenue_cluster_colors": [
+    "yellow",
+    "green",
+    "brown",
+    "gray"
+  ],
+  "clusters": 1,
+  "clockwise_external_entrances": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1,
+    0
+  ],
+  "entrance_description": "Clockwise from border; first four edges on cell 2, last four on cell 3",
+  "engine_revenue_note": "Temporary phase revenues; one shared destination group for adjoining offboards",
+  "preview_revenue_cluster": false
+}
