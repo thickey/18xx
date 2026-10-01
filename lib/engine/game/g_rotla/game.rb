@@ -67,6 +67,14 @@ module Engine
           return false if from.color == :blue
           return false if from.color == :gray
 
+          # Mining preserves exits, while its cities and internal track may move.
+          if from.label.to_s == 'M'
+            return false if to.label.to_s != 'M'
+            return false unless upgrades_to_correct_color?(from, to)
+
+            return (0..5).any? { |rotation| (from.exits - to.exits.map { |edge| (edge + rotation) % 6 }).empty? }
+          end
+
           super
         end
 

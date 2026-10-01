@@ -216,9 +216,15 @@ module Engine
               neighbor = hex.all_neighbors[edge]
               !neighbor || neighbor.empty ||
                 (neighbor.tile.color == :blue && neighbor.tile.paths.empty? && !@game.company_power?(entity, 'BR')) ||
-                neighbor.tile.color == :gray ||
+                (neighbor.tile.color == :gray && neighbor.tile.paths.empty?) ||
                 (neighbor.tile.color == :red && !neighbor.tile.exits.include?(hex.invert(edge)))
             end
+
+            super
+          end
+
+          def old_paths_maintained?(hex, tile)
+            return (hex.tile.exits - tile.exits).empty? if hex.tile.label.to_s == 'M' && tile.label.to_s == 'M'
 
             super
           end

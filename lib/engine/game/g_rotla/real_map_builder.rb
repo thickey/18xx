@@ -226,6 +226,8 @@ module Engine
         end
 
         def water_edges_for(hex)
+          return tile_water_edges(hex.tile) if %w[LA2 LA5].include?(hex.tile.name)
+
           return super unless @real_setup
 
           rotation = hex.instance_variable_get(:@rotla_port_rotation)
@@ -239,7 +241,25 @@ module Engine
           p ? [2, 3].map { |e| (e + p[:rotation]) % 6 } : []
         end
 
+        def tile_water_edges(tile)
+          return [] unless %w[LA2 LA5].include?(tile.name)
+
+          [2, 3].map { |edge| (edge + tile.rotation) % 6 }
+        end
+
+        def tile_city_revenue_position(tile, city)
+          return unless %w[LA4 LA7].include?(tile.name)
+          return unless city == tile.cities[1]
+
+          { x: 52, y: -38 }
+        end
+
         def tile_label_position(tile)
+          if %w[LA2 LA5].include?(tile.name)
+            angle = (240 + (60 * tile.rotation)) * Math::PI / 180
+            return { x: 61 * Math.cos(angle), y: 61 * Math.sin(angle), region_weights: {} }
+          end
+
           return super unless @real_setup
           return if tile.label.to_s != 'P' || !tile.hex
 

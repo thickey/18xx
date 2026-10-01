@@ -57,7 +57,9 @@ module View
         children = hex_outline
         if @game.respond_to?(:water_edges_for)
           vertices = Lib::Hex::POINTS.split
-          @game.water_edges_for(@hex).each do |edge|
+          water_edges = @game.tile_water_edges(@tile) if @game.respond_to?(:tile_water_edges)
+          water_edges = @game.water_edges_for(@hex) if !water_edges || water_edges.empty?
+          water_edges.each do |edge|
             children << h(:polygon, attrs: {
                             points: "0,0 #{vertices[(edge + 1) % 6]} #{vertices[(edge + 2) % 6]}",
                             fill: '#9fd6e8',

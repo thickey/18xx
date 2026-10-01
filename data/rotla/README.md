@@ -121,8 +121,8 @@ coordinate regression fixture. It does not claim to be a publisher preset.
 
 ## Remaining work before gameplay integration
 
-1. Define gameplay track codes and compare each design to its linked reference
-   image, especially custom LA IDs and capital/mining/port upgrades.
+1. Track supply and capital/mining/port gameplay codes are integrated and checked;
+   see `docs/ROTLA-TRACK-CATALOG.md` for quantities, corrections and verification.
 2. Inventory alternate destination revenue cards before offering those options.
    The base setup already uses the recommended card.
 3. Choose the rules edition and inventory majors' alternative identities, token
