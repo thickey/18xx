@@ -48,7 +48,8 @@ module Engine
       expect(game.players.map(&:cash)).to eq([300, 300, 300])
       expect(game.charter_columns.map(&:size)).to eq([4, 4, 4])
       expect(game.available_charters.map(&:id)).to eq(%w[EM OV AD])
-      expect(game.corporations.size).to eq(12)
+      expect(game.corporations.count { |corp| corp.type == :minor }).to eq(12)
+      expect(game.available_majors.size).to eq(6)
       expect(game.depot.upcoming.map(&:name).tally).to include('2' => 7, '3' => 5, '4' => 4)
     end
 

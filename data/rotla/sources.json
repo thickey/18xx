@@ -33,5 +33,11 @@
       "path": "sources/upgrades.html",
       "sha256": "4cb08d88bfc0ea77efc90a58b3e8c8596703c81fc598b51838ca7edf9d3c7290"
     }
-  ]
+  ],
+  "second_printing_rulebook": {
+    "url": "https://www.asterisk-games.com/s/Railways-EN-2nd-Rulebook.pdf",
+    "retrieved_date": "2026-10-01",
+    "sha256": "770f6ee431c4195b68757d7d21aff5a0b7e0163a64cf92e345285db314297e57",
+    "runtime_default": true
+  }
 }

@@ -32,6 +32,36 @@ module Engine
         end
 
         class BuyTrain < Engine::Step::BuyTrain
+          def can_sell?(entity, bundle)
+            return super if @game.original_rules?
+            return false if entity != current_entity.owner || !must_buy_train?(current_entity)
+            return false if !bundle || bundle.num_shares != 1 || !@game.check_sale_timing(entity, bundle)
+            return false if entity.cash + current_entity.cash >= @depot.min_depot_price
+
+            sellable_bundle?(bundle)
+          end
+
+          def process_sell_shares(action)
+            return super if @game.original_rules?
+            unless can_sell?(action.entity, action.bundle)
+              raise GameError, 'Sell one legal share at a time to fund the mandatory train'
+            end
+
+            @game.share_pool.sell_shares(action.bundle)
+            @emergency_sales ||= []
+            @emergency_sales << action.bundle.corporation unless @emergency_sales.include?(action.bundle.corporation)
+          end
+
+          def finish_emergency_sales!
+            (@emergency_sales || []).each do |corp|
+              old = corp.share_price
+              @game.stock_market.move_left(corp)
+              @game.log_share_price(corp, old)
+            end
+            @emergency_sales = []
+            @round.recalculate_order if @round.respond_to?(:recalculate_order)
+          end
+
           def actions(entity)
             result = super
             result.delete('pass') if entity == current_entity && @game.must_buy_train?(entity)
@@ -52,12 +82,40 @@ module Engine
             raise GameError, 'A rusted train cannot be traded in' if action.exchange&.rusted
 
             super
+            finish_emergency_sales! unless @game.original_rules?
+          end
+        end
+
+        class Bankrupt < Engine::Step::Base
+          def blocks?
+            false
+          end
+
+          def description
+            'Declare bankruptcy'
+          end
+
+          def actions(entity)
+            return [] if @game.original_rules? || entity != current_entity
+            return [] unless @game.can_go_bankrupt?(entity.owner, entity)
+
+            ['bankrupt']
+          end
+
+          def process_bankrupt(action)
+            unless actions(action.entity).any?
+              raise GameError, 'Finish all available forced share sales before declaring bankruptcy'
+            end
+
+            @round.active_step.finish_emergency_sales!
+            @game.declare_bankrupt(action.entity.owner)
+            @log << "#{action.entity.owner.name} cannot fund a mandatory train and declares bankruptcy"
           end
         end
 
         class LeadOffTrain < BuyTrain
           def actions(entity)
-            return [] if entity != current_entity || entity.operated?
+            return [] if entity != current_entity || entity.type != :minor || entity.operated?
 
             result = can_buy_train?(entity) ? %w[buy_train pass] : ['pass']
             result << 'choose' if @game.suburb_choices(entity).any?
@@ -115,19 +173,19 @@ module Engine
         class Track < Engine::Step::Track
           def potential_tile_colors(entity, hex)
             colors = super
-            colors << :blue if entity.id == 'BR' && hex.tile.color == :blue && hex.tile.paths.empty?
+            colors << :blue if @game.company_power?(entity, 'BR') && hex.tile.color == :blue && hex.tile.paths.empty?
             colors
           end
 
           def potential_tiles(entity, hex)
-            super.reject { |tile| @game.class::BRIDGE_TILES.include?(tile.name) && entity.id != 'BR' }
+            super.reject { |tile| @game.class::BRIDGE_TILES.include?(tile.name) && !@game.company_power?(entity, 'BR') }
           end
 
           def available_hex(entity, hex)
             return nil if @game.class::BRIDGE_TILES.include?(hex.tile.name)
 
             if hex.tile.color == :blue
-              return nil if entity.id != 'BR' || !hex.tile.paths.empty? || !get_tile_lay(entity)&.dig(:lay)
+              return nil if !@game.company_power?(entity, 'BR') || !hex.tile.paths.empty? || !get_tile_lay(entity)&.dig(:lay)
 
               return hex_neighbors(entity, hex)
             end
@@ -142,12 +200,12 @@ module Engine
 
           def process_lay_tile(action)
             if @game.class::BRIDGE_TILES.include?(action.tile.name)
-              raise GameError, 'Only Bridging can lay bridges' unless action.entity.id == 'BR'
+              raise GameError, 'Only Bridging can lay bridges' unless @game.company_power?(action.entity, 'BR')
               raise GameError, 'A bridge replaces a yellow lay' unless get_tile_lay(action.entity)&.dig(:lay)
             end
             mountain = action.hex.tile.upgrades.any? { |upgrade| upgrade.terrains.include?(:mountain) }
             super
-            return if action.entity.id != 'TU' || !mountain
+            return if !@game.company_power?(action.entity, 'TU') || !mountain
 
             @game.bank.spend(60, action.entity)
             @log << 'Tunneling receives 60 after paying the mountain cost'
@@ -157,7 +215,7 @@ module Engine
             return false if tile.exits.any? do |edge|
               neighbor = hex.all_neighbors[edge]
               !neighbor || neighbor.empty ||
-                (neighbor.tile.color == :blue && neighbor.tile.paths.empty? && entity.id != 'BR') ||
+                (neighbor.tile.color == :blue && neighbor.tile.paths.empty? && !@game.company_power?(entity, 'BR')) ||
                 neighbor.tile.color == :gray ||
                 (neighbor.tile.color == :red && !neighbor.tile.exits.include?(hex.invert(edge)))
             end

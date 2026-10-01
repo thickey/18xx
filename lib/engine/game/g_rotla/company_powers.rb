@@ -6,13 +6,21 @@ module Engine
       module CompanyPowers
         BRIDGE_TILES = %w[721 722 723].freeze
 
+        def company_power?(entity, id)
+          entity && (entity.id == id || (@merged_minors || {}).fetch(entity.id, []).include?(id))
+        end
+
+        def token_graph_for_entity(entity)
+          company_power?(entity, 'OV') && entity.type == :major ? @overnight_graph : super
+        end
+
         def init_graph
           @overnight_graph = Graph.new(self, no_blocking: true)
           super
         end
 
         def graph_for_entity(entity)
-          entity&.id == 'OV' ? @overnight_graph : super
+          company_power?(entity, 'OV') ? @overnight_graph : super
         end
 
         def clear_graph
@@ -25,19 +33,19 @@ module Engine
         end
 
         def check_connected(route, corporation)
-          super(route, corporation.id == 'OV' ? nil : corporation)
+          super(route, company_power?(corporation, 'OV') ? nil : corporation)
         end
 
         def visited_stops(route)
           stops = super
-          return stops unless route.corporation.id == 'OV'
+          return stops unless company_power?(route.corporation, 'OV')
 
           stops.reject { |stop| stop.city? && stop.blocks?(route.corporation) }
         end
 
         def check_other(route)
           super
-          return unless route.corporation.id == 'OV'
+          return unless company_power?(route.corporation, 'OV')
 
           endpoints = [route.connection_data.first&.dig(:left), route.connection_data.last&.dig(:right)].compact
           return unless endpoints.any? { |stop| stop.city? && stop.blocks?(route.corporation) }
@@ -46,7 +54,7 @@ module Engine
         end
 
         def rust(train)
-          if train.owner&.corporation? && train.owner.id == 'RE' && !train.rusted
+          if train.owner&.corporation? && company_power?(train.owner, 'RE') && !train.rusted
             train.rusted = true
             @crowded_corps = nil
             @log << "Resourceful retains its #{train.name} train for one final run"
@@ -78,7 +86,7 @@ module Engine
         end
 
         def suburb_choices(entity)
-          return {} if entity&.id != 'SU' || suburbs.size >= 2
+          return {} if !company_power?(entity, 'SU') || suburbs.size >= 2
 
           connected = graph_for_entity(entity).connected_nodes(entity)
           @hexes.each_with_object({}) do |hex, choices|
@@ -105,7 +113,7 @@ module Engine
 
         def revenue_for(route, stops)
           revenue = super
-          return revenue unless route.corporation.id == 'SU'
+          return revenue unless company_power?(route.corporation, 'SU')
 
           revenue + (stops.count { |stop| suburbs.include?(stop.hex.id) } * 10)
         end

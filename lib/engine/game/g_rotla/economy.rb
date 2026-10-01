@@ -33,7 +33,15 @@ module Engine
           'SU' => 'Two suburbs: place during any OR step in reachable basic cities without your hub; +10 per visiting train.',
           'TU' => 'Pay the 40 mountain cost first, then receive 60 into the treasury.',
         }.freeze
-        CORPORATIONS = NAMES.map.with_index do |(sym, name), index|
+        MAJORS = {
+          'Con' => 'Conglomerate',
+          'Exp' => 'Experiment',
+          'Fed' => 'Federation',
+          'Int' => 'International',
+          'Syn' => 'Syndicate',
+          'Unl' => 'Unlimited',
+        }.freeze
+        CORPORATIONS = (NAMES.map.with_index do |(sym, name), index|
           {
             sym: sym,
             name: "#{name} Company",
@@ -48,16 +56,30 @@ module Engine
             simple_logo: "rotla/#{sym}",
             abilities: [{ type: 'description', description: "#{name} power (click for details)", desc_detail: POWERS[sym] }],
           }
-        end.freeze
+        end + MAJORS.map.with_index do |(sym, name), index|
+          {
+            sym: sym,
+            name: name,
+            shares: [20, 10, 10, 10, 10, 10, 10, 10, 10],
+            tokens: [0, 0, 60, 60],
+            float_percent: 20,
+            max_ownership_percent: 60,
+            always_market_price: true,
+            type: 'major',
+            color: COLORS[index],
+            logo: "rotla/#{sym}",
+            simple_logo: "rotla/#{sym}",
+          }
+        end).freeze
         MARKET = [%w[0c 10 20 30 40 50 60p 70p 80p 90p 100p 110p 120p 135p 150 165 180 200 220 245 270 300 330 360 400 450
                      500]].freeze
         PHASES = [
-          { name: '2', train_limit: 2, tiles: [:yellow], operating_rounds: 2 },
-          { name: '3', on: '3', train_limit: 2, tiles: %i[yellow green], operating_rounds: 2 },
-          { name: '4', on: '4', train_limit: 2, tiles: %i[yellow green], operating_rounds: 2 },
-          { name: '5', on: '5', train_limit: 1, tiles: %i[yellow green brown], operating_rounds: 2 },
-          { name: '6', on: '6', train_limit: 1, tiles: %i[yellow green brown], operating_rounds: 2 },
-          { name: '7', on: '7', train_limit: 1, tiles: %i[yellow green brown gray], operating_rounds: 2 },
+          { name: '2', train_limit: { minor: 2, major: 0 }, tiles: [:yellow], operating_rounds: 2 },
+          { name: '3', on: '3', train_limit: { minor: 2, major: 4 }, tiles: %i[yellow green], operating_rounds: 2 },
+          { name: '4', on: '4', train_limit: { minor: 2, major: 3 }, tiles: %i[yellow green], operating_rounds: 2 },
+          { name: '5', on: '5', train_limit: { minor: 1, major: 2 }, tiles: %i[yellow green brown], operating_rounds: 2 },
+          { name: '6', on: '6', train_limit: { minor: 1, major: 2 }, tiles: %i[yellow green brown], operating_rounds: 2 },
+          { name: '7', on: '7', train_limit: { minor: 1, major: 2 }, tiles: %i[yellow green brown gray], operating_rounds: 2 },
         ].freeze
         TRAINS = [
           { name: '2', distance: 2, price: 100, num: 7, rusts_on: '4' },
@@ -88,6 +110,10 @@ module Engine
 
         attr_reader :playing, :charter_columns
 
+        def original_rules?
+          @optional_rules.include?(:original_rules)
+        end
+
         def game_trains
           definitions = TRAINS.map do |train|
             definition = train.dup
@@ -96,7 +122,9 @@ module Engine
               definition[:num] = { '2' => @players.size == 2 ? 3 : 5, '3' => @players.size == 2 ? 3 : 4, '4' => 4 }[name]
               definition[:num] = 3 if name == '4' && @players.size == 2
             elsif name != '7'
-              definition[:num] += 1 if name == '3' && @players.size == 5
+              extra_players = original_rules? ? 5 : 4
+              definition[:num] += 1 if name == '3' && @players.size >= extra_players
+              definition[:num] += 1 if name == '6' && !original_rules? && @players.size >= 4
               definition[:num] -= 1 if short_map?
             end
             definition
@@ -109,14 +137,14 @@ module Engine
           raise GameError, 'The game has already started' if @playing
 
           @playing = true
-          @corporations.select! { |corp| setup_minor_ids.include?(corp.id) }
+          @corporations.select! { |corp| corp.type == :major || setup_minor_ids.include?(corp.id) }
           @hexes.each do |hex|
             hex.tile.cities.each do |city|
               city.reservations.map! { |reservation| @corporations.find { |corp| corp.id == reservation&.id } }
             end
           end
           @corporations.each do |corp|
-            next if corp.id == 'AD'
+            next if corp.id == 'AD' || corp.type == :major
 
             hex = @hexes.find { |h| h.tile.cities.any? { |city| city.reserved_by?(corp) } }
             corp.coordinates = hex.id
@@ -136,7 +164,8 @@ module Engine
                  else
                    4
                  end
-          @charter_columns = @corporations.reject(&:ipoed).sort_by { rand }.each_slice(rows).map(&:to_a)
+          @charter_columns = @corporations.select { |corp| corp.type == :minor && !corp.ipoed }
+                                         .sort_by { rand }.each_slice(rows).map(&:to_a)
         end
 
         def available_charters
@@ -172,7 +201,7 @@ module Engine
         end
 
         def operating_round(round_num)
-          Engine::Round::Operating.new(self, [Step::LeadOffTrain, [Step::IssueShares, { blocks: true }],
+          Engine::Round::Operating.new(self, [Step::Bankrupt, Step::LeadOffTrain, [Step::IssueShares, { blocks: true }],
                                               Step::Track, Step::Token, Step::Route, Step::Dividend,
                                               Step::DiscardTrain, Step::BuyTrain], round_num: round_num)
         end
@@ -191,12 +220,12 @@ module Engine
         end
 
         def train_limit(entity)
-          super + (entity.id == 'SP' ? 1 : 0)
+          super + (company_power?(entity, 'SP') ? 1 : 0)
         end
 
         def check_distance(route, visits, train = nil)
           train ||= route.train
-          if train.owner.id == 'ER' && train.owner.trains.one?
+          if company_power?(train.owner, 'ER') && train.owner.trains.one?
             raise RouteTooLong, 'Express train exceeds its boosted distance' if visits.sum(&:visit_cost) > train.distance + 1
 
             return
@@ -206,6 +235,11 @@ module Engine
 
         def check_other(route)
           super
+          connections = route.connection_data
+          unless connections.empty?
+            nodes = [connections.first[:left]] + connections.map { |connection| connection[:right] }
+            raise GameError, 'An offboard may only start or end a route' if nodes[1...-1].any?(&:offboard?)
+          end
           ports = route.visited_stops.select { |stop| stop.tile.label.to_s == 'P' }
           raise GameError, 'Both halves of the Port count as the same city' if ports.group_by(&:hex).any? do |_, stops|
                                                                                  stops.size > 1
@@ -213,11 +247,11 @@ module Engine
         end
 
         def tile_lays(entity)
-          [{ lay: true, upgrade: true }, { lay: entity.id == 'AG' ? true : :not_if_upgraded, upgrade: false }]
+          [{ lay: true, upgrade: true }, { lay: company_power?(entity, 'AG') ? true : :not_if_upgraded, upgrade: false }]
         end
 
         def issuable_shares(entity)
-          return [] unless @share_pool.percent_of(entity) + 20 <= 50
+          return [] unless @share_pool.percent_of(entity) + entity.share_percent <= 50
 
           share = entity.shares_of(entity).find { |s| !s.president }
           share ? [share.to_bundle] : []
@@ -230,6 +264,10 @@ module Engine
 
         def must_buy_train?(entity)
           entity.trains.empty? && !@depot.depot_trains.empty?
+        end
+
+        def check_sale_timing(entity, bundle)
+          bundle.corporation.type == :major || super
         end
       end
     end

@@ -8,6 +8,9 @@ require_relative 'real_map_builder'
 require_relative 'extended_setup'
 require_relative 'economy'
 require_relative 'company_powers'
+require_relative 'mergers'
+require_relative 'round/merger'
+require_relative 'step/merger'
 require_relative 'step/stock'
 require_relative 'step/operating'
 require_relative 'round/setup'
@@ -24,6 +27,7 @@ module Engine
         include ExtendedSetup
         include Economy
         include CompanyPowers
+        include Mergers
 
         BANK_CASH = 24_500
         STARTING_CASH = { 2 => 450, 3 => 300, 4 => 275, 5 => 220 }.freeze
@@ -110,9 +114,57 @@ module Engine
           Round::Setup.new(self, [Step::MapSetup])
         end
 
+        def cycle_limit
+          micro_game? || short_map? ? 4 : 6
+        end
+
+        def game_end_check_values
+          original_rules? ? {} : { bankrupt: :immediate }
+        end
+
+        def can_go_bankrupt?(player, corporation)
+          return super if original_rules?
+
+          step = @round.active_step
+          return false if !step.is_a?(Step::BuyTrain) || step.is_a?(Step::LeadOffTrain)
+          return false if corporation != step.current_entity || !must_buy_train?(corporation)
+          return false if player.cash + corporation.cash >= @depot.min_depot_price
+
+          @corporations.none? do |corp|
+            bundles_for_corporation(player, corp).any? { |bundle| step.can_sell?(player, bundle) }
+          end
+        end
+
+        def game_ending_description
+          return unless @playing
+          return super if @finished && @game_end_reason != :fixed_round
+
+          @finished ? "Game ended after #{cycle_limit} cycles" : "Game ends after #{cycle_limit} complete cycles"
+        end
+
+        def result
+          order = operating_order
+          ranked = @players.sort_by do |player|
+            [-player_value(player), order.index { |corp| corp.owner == player } || order.size, @players.index(player)]
+          end
+          ranked.to_h { |player| [player.id, player_value(player)] }
+        end
+
+        def advance_cycle!
+          if @turn >= cycle_limit
+            @log << "The final cycle (#{cycle_limit}) is complete"
+            end_game!(:fixed_round)
+          else
+            @turn += 1
+            @round = stock_round
+          end
+        end
+
         def next_round!
           if @playing
-            if @round.instance_of?(Round::MapReady)
+            if @round.instance_of?(Round::ExportDiscard)
+              advance_cycle!
+            elsif @round.instance_of?(Round::MapReady)
               @round = stock_round
             elsif @round.stock?
               if @corporations.none?(&:ipoed)
@@ -125,10 +177,17 @@ module Engine
               end
             elsif @round.operating? && @round.round_num == 1
               @round = operating_round(2)
+            elsif @round.operating? && @phase.name != '2'
+              @round = Round::Merger.new(self, [Step::Merger])
             else
-              @depot.export! unless micro_game?
-              @turn += 1
-              @round = stock_round
+              if !micro_game? && !@depot.upcoming.empty?
+                @depot.upcoming.first.name == '2' ? @depot.export_all!('2') : @depot.export!
+              end
+              if crowded_corps.any?
+                @round = Round::ExportDiscard.new(self, [Step::ExportDiscard])
+              else
+                advance_cycle!
+              end
             end
             return
           end

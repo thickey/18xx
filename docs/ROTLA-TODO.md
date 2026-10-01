@@ -111,24 +111,35 @@ Implementation notes:
   presidency changes, sold-out movement and stock-to-two-OR transitions.
 - [x] Leadoff train, issue/redeem, reachable track, hub placement, traced/local
   routes, payout/withhold, mandatory trains and train export between cycles.
-- [x] Original and Micro rosters/cash; basic Agricultural, Express, Expansive,
-  Spacious and Tunneling effects. Original five-player extra 3 rule retained.
+- [x] Second-printing and Micro rosters/cash; basic Agricultural, Express, Expansive,
+  Spacious and Tunneling effects. Original roster remains an optional setting.
 - [x] Reusable Hotseat import and user walkthrough in ROTLA-ROUNDS.md; browser
   validation of auction, launch, treasury purchase, both ORs, sale and market buy.
 - [x] Implement Bridging's five finite water tiles and water-facing track,
   Suburban's two persistent suburbs with +10 per visiting train, Overnight's
   blocked-city passage, and Resourceful's final run after rust. Include legal
   action replay, late suburb placement before dividends and a Hotseat demo.
+- [x] Green-phase Merger Rounds after both ORs: connected minor proposals,
+  president consent, six major identities, share exchanges, stock averaging,
+  pooled treasuries/trains, converted hubs, excess-train discards and inherited
+  powers. Includes a legal replayable merger-ready Hotseat demo and major ORs.
+- [x] Export all remaining 2-trains together; begin merger rounds only after
+  a pair of ORs in the green phase, not immediately when an export changes phase.
 
 ## Remaining gameplay work
 
 - [ ] Finish the green, brown and gray track catalog, including company-specific
   tiles and remaining destination-card research.
-- [ ] Implement mergers, headquarters, bankruptcy and endgame scoring.
-- [ ] Carry minor powers through mergers; complete Mining and Port upgrade sets
-  as part of the special tile catalog.
-- [ ] Add revised-edition support separately. Playable rounds currently follow
-  the supplied original rulebook, including its five-player extra 3 train.
+- [x] End after six complete Long Game cycles or four Short/Micro cycles,
+  including the final merger/export/discard steps. Score personal cash and
+  shares; break ties by operating presidency order. Bank depletion does not end play.
+- [ ] Implement headquarters, hostile mergers and optional continuation after bankruptcy.
+- [ ] Offer the Bank Break variant separately (8,000 bank, Long Game setup,
+  player-count certificate limits, end after both ORs when the bank runs out).
+- [ ] Complete Mining and Port upgrade sets as part of the special tile catalog.
+- [x] Default to second-printing train counts, enforce offboard route endpoints,
+  and implement forced share sales and immediate bankruptcy ending. Preserve
+  the original train roster as a setting; see ROTLA-EDITIONS.md.
 - [ ] Investigate the background queue service before online/background testing;
   earlier shutdown inspection found it exited with code 1. Hotseat testing works.
 - [ ] Review and commit the local changes when ready.

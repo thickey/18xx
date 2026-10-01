@@ -17,6 +17,11 @@ module Engine
         PLAYER_RANGE = [2, 5].freeze
         OPTIONAL_RULES = [
           {
+            sym: :original_rules,
+            short_name: 'Original printing rules',
+            desc: 'Use the original train roster: extra 3 only for five players, and no extra 6. Default is second printing.',
+          },
+          {
             sym: :short_game,
             short_name: 'Short Game',
             desc: '25 map pieces and two capitals (required for two players; unavailable for five).',

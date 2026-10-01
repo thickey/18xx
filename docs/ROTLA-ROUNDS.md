@@ -2,15 +2,20 @@
 
 The rounds prototype supports the initial minor launch auctions, starting
 companies, treasury and bank-pool share purchases, share sales, and Operating
-Rounds. It uses the original rules in `RailwaysRulebook-CleanFonts.pdf`, printed
-pages 7 and 10–17. The stock track is visually transcribed from the table setup
+Rounds and normal minor mergers. It defaults to the publisher’s second-printing rules; see [edition details](ROTLA-EDITIONS.md). The stock track is visually transcribed from the table setup
 image on printed page 9. This is an early-round implementation, not a complete
-RotLA game: mergers, headquarters, cycle scoring/end conditions, bankruptcy,
+RotLA game: headquarters, hostile mergers, optional continuation after bankruptcy,
 and the remaining special/later-phase tile definitions are still pending.
 Minor operating powers include Bridging, Suburban, Overnight and Resourceful;
 see [company powers](ROTLA-COMPANY-POWERS.md) for behavior and a test save.
-The original five-player extra 3-train rule is used;
+See [mergers](ROTLA-MERGERS.md) for a saved game with connected minors ready to merge.
+Four- and five-player games add one extra 3-train and one extra 6-train;
 Micro Games have their reduced train rosters, starting cash and no exports.
+Long Games end after six complete cycles; Short and Micro Games end after four.
+Finish both ORs, any Merger Round, the train export and required discards before
+scoring. Scores include personal cash and shares, excluding company treasuries;
+ties favor the president whose company operates earliest. Bank depletion does
+not end the default game. Bankruptcy ends play immediately after forced share sales. The Bank Break variant is not yet offered in settings.
 
 ## Load the supplied game yourself
 
@@ -61,7 +66,9 @@ the first remaining charter in each column can be chosen.
    at $60. Withholding pays the company $30 and moves its stock price left.
    Buy another train if desired and affordable, or skip the final train step.
 6. Repeat the operating actions in OR 1.2. After both ORs, the base game exports
-   one train and returns to Stock Round 2. Micro Games do not export.
+   all remaining depot 2-trains together and returns to Stock Round 2. Later
+   cycles export one train, after a Merger Round when already in the green
+   phase. Micro Games do not export.
 7. Shares can now be sold because Eastern Mining has operated. Pass as Carol
    and Alice to reach Bob, select the company card and click **Sell 1 ($60)**.
    The share enters the bank pool and stock price moves to $50. Bob cannot buy
