@@ -6,6 +6,10 @@ require_relative 'map'
 require_relative 'map_builder'
 require_relative 'real_map_builder'
 require_relative 'extended_setup'
+require_relative 'economy'
+require_relative 'company_powers'
+require_relative 'step/stock'
+require_relative 'step/operating'
 require_relative 'round/setup'
 require_relative 'step/map_setup'
 
@@ -18,13 +22,26 @@ module Engine
         include MapBuilder
         include RealMapBuilder
         include ExtendedSetup
+        include Economy
+        include CompanyPowers
 
-        # Neutral scaffolding for map exploration; these are not RotLA economic rules.
-        BANK_CASH = 10_000
-        STARTING_CASH = { 2 => 0, 3 => 0, 4 => 0, 5 => 0 }.freeze
+        BANK_CASH = 24_500
+        STARTING_CASH = { 2 => 450, 3 => 300, 4 => 275, 5 => 220 }.freeze
         CERT_LIMIT = 99
-        MARKET = [%w[50]].freeze
-        PHASES = [{ name: 'Setup', train_limit: 0, tiles: [:yellow], operating_rounds: 1 }].freeze
+        MARKET = Economy::MARKET
+        PHASES = Economy::PHASES
+        CORPORATIONS = Economy::CORPORATIONS
+        TRAINS = Economy::TRAINS
+        CAPITALIZATION = :incremental
+        SELL_BUY_ORDER = :sell_buy
+        SELL_AFTER = :operate
+        SELL_MOVEMENT = :left_block
+        MUST_SELL_IN_BLOCKS = true
+        SOLD_OUT_INCREASE = true
+        HOME_TOKEN_TIMING = :par
+        MUST_BUY_TRAIN = :always
+        CLOSED_CORP_TRAINS_REMOVED = false
+        TRACK_RESTRICTION = :city_permissive
         GAME_END_CHECK = {}.freeze
 
         attr_reader :map_id
@@ -42,6 +59,8 @@ module Engine
         def init_starting_cash(_players, _bank); end
 
         def upgrades_to?(from, to, special = false, selected_company: nil)
+          return from.color == :blue && from.paths.empty? if CompanyPowers::BRIDGE_TILES.include?(to.name)
+          return false if from.color == :blue
           return false if from.color == :gray
 
           super
@@ -78,6 +97,8 @@ module Engine
         end
 
         def starting_map
+          return clone(raw_actions.take_while { |action| action['choice'] != 'play_v1' }) if @playing
+
           return clone(raw_actions) unless @map_id
 
           game = clone([])
@@ -90,6 +111,28 @@ module Engine
         end
 
         def next_round!
+          if @playing
+            if @round.instance_of?(Round::MapReady)
+              @round = stock_round
+            elsif @round.stock?
+              if @corporations.none?(&:ipoed)
+                shuffle_charters!
+                @round = stock_round
+                @log << 'No companies launched; reshuffle charters and restart the initial Stock Round'
+              else
+                reorder_players
+                @round = operating_round(1)
+              end
+            elsif @round.operating? && @round.round_num == 1
+              @round = operating_round(2)
+            else
+              @depot.export! unless micro_game?
+              @turn += 1
+              @round = stock_round
+            end
+            return
+          end
+
           @round = if @round.instance_of?(Round::Setup)
                      Round::MapReady.new(self, [Step::MapReady])
                    else

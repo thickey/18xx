@@ -2,7 +2,7 @@
 
 ## Current state
 
-This is a local, uncommitted map-setup implementation, not yet playable RotLA.
+This is a local setup and early-rounds prototype; full RotLA gameplay is still incomplete.
 Normal setup now uses the real 33-piece Long Game / 25-piece Short Game supply,
 capital projects, and printed minor homes. See [ROTLA.md](ROTLA.md) for setup,
 replay compatibility, sources and commands.
@@ -97,20 +97,38 @@ Implementation notes:
   an implementation choice because the rules do not specify placement order.
 - [x] Validate with 44 engine examples and clean formatting. New setup uses
   `start_v5`; saved v4 games retain their previous automatic completion.
-  Micro train, cash and round changes remain part of upcoming gameplay work.
+  Micro train, cash and round changes are included in the playable rounds below.
 
-## After setup is complete
+## Completed: first playable rounds
 
-- [ ] Integrate the prepared company and track data into the engine. Verify
-  capitalization, token counts and edition-specific details; implement company
-  powers separately from declarative inventory records.
-- [ ] Finalize map-dependent company availability, reservations, home-token
-  placement and graph initialization, then transition to the initial auction.
-- [ ] Choose the original or revised edition before implementing trains: the
-  supplied rulebook has the old extra-3-train rule, while the inventory includes
-  the 2026 revision kit. Finish remaining destination-card research.
-- [ ] Implement auction, stock and operating rounds, trains, mergers and minor
-  powers incrementally. The current Map Ready round is only a prototype endpoint.
+- [x] Map Ready can explicitly start funded Stock Round 1, preserving old map
+  saves and providing seeded charter columns with map-dependent availability.
+- [x] Minor launch auctions bid in clockwise order, exclude passed bidders,
+  choose an available charter, capitalize its treasury, set its stock price,
+  place its home hub and return to the turn after the initiator. Adaptive chooses
+  a basic unreserved home city.
+- [x] Treasury/market purchases, sales after operation, ownership limits,
+  presidency changes, sold-out movement and stock-to-two-OR transitions.
+- [x] Leadoff train, issue/redeem, reachable track, hub placement, traced/local
+  routes, payout/withhold, mandatory trains and train export between cycles.
+- [x] Original and Micro rosters/cash; basic Agricultural, Express, Expansive,
+  Spacious and Tunneling effects. Original five-player extra 3 rule retained.
+- [x] Reusable Hotseat import and user walkthrough in ROTLA-ROUNDS.md; browser
+  validation of auction, launch, treasury purchase, both ORs, sale and market buy.
+- [x] Implement Bridging's five finite water tiles and water-facing track,
+  Suburban's two persistent suburbs with +10 per visiting train, Overnight's
+  blocked-city passage, and Resourceful's final run after rust. Include legal
+  action replay, late suburb placement before dividends and a Hotseat demo.
+
+## Remaining gameplay work
+
+- [ ] Finish the green, brown and gray track catalog, including company-specific
+  tiles and remaining destination-card research.
+- [ ] Implement mergers, headquarters, bankruptcy and endgame scoring.
+- [ ] Carry minor powers through mergers; complete Mining and Port upgrade sets
+  as part of the special tile catalog.
+- [ ] Add revised-edition support separately. Playable rounds currently follow
+  the supplied original rulebook, including its five-player extra 3 train.
 - [ ] Investigate the background queue service before online/background testing;
   earlier shutdown inspection found it exited with code 1. Hotseat testing works.
 - [ ] Review and commit the local changes when ready.

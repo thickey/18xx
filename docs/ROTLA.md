@@ -1,8 +1,10 @@
 # Railways of the Lost Atlas: map setup
 
-This is a **prealpha map-setup implementation**, not yet a playable RotLA game.
+This is a **prealpha setup and early-rounds implementation**. See
+[ROTLA-ROUNDS.md](ROTLA-ROUNDS.md) to import a Hotseat game and play launch
+auctions, share trading and Operating Rounds. Later gameplay remains incomplete.
 Normal setup uses the real physical supply: 33 tri-hex pieces in the Long Game,
-25 in the Short Game. Auctions and operating rounds are still to come.
+25 in the Short Game.
 No official artwork is included.
 
 ## Run locally
@@ -64,7 +66,7 @@ cells count as possible AD home locations for this phase.
 
 Printed page 6 describes blanks around homes without prescribing an exact
 placement order. The finishing phase is an implementation choice so players
-can assess the completed map. **Map Ready** is the endpoint. The ordinary **Map** tab
+can assess the completed map. **Map Ready** offers **Start auctions and Stock Round**. The ordinary **Map** tab
 shows the assembled engine map, including home reservations. **Build another
 map** reshuffles the same mode's supply. If all players agree a drawn piece has
 no legal placement, **Restart map construction** reshuffles during setup.

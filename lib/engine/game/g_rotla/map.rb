@@ -5,7 +5,35 @@ module Engine
     module GRotla
       module Map
         LAYOUT = :flat
-        TILES = {}.freeze
+        # Empty water has no paths; connecting its edges lets Bridging reach it.
+        IMPASSABLE_HEX_COLORS = %i[gray red].freeze
+        TILES = {
+          '5' => 5,
+          '6' => 7,
+          '7' => 6,
+          '8' => 14,
+          '9' => 13,
+          '57' => 7,
+          '291' => { 'count' => 1, 'color' => 'yellow', 'code' => 'city=revenue:40;path=a:0,b:_0;path=a:1,b:_0;label=C' },
+          '292' => { 'count' => 1, 'color' => 'yellow', 'code' => 'city=revenue:40;path=a:0,b:_0;path=a:2,b:_0;label=C' },
+          '293' => { 'count' => 1, 'color' => 'yellow', 'code' => 'city=revenue:40;path=a:0,b:_0;path=a:3,b:_0;label=C' },
+          '14' => 4,
+          '15' => 5,
+          '16' => 1,
+          '18' => 3,
+          '19' => 3,
+          '20' => 1,
+          '23' => 3,
+          '24' => 3,
+          '25' => 2,
+          '26' => 1,
+          '27' => 1,
+          '28' => 1,
+          '29' => 1,
+          '721' => { 'count' => 2, 'color' => 'blue', 'code' => 'path=a:0,b:3' },
+          '722' => { 'count' => 2, 'color' => 'blue', 'code' => 'path=a:0,b:2' },
+          '723' => { 'count' => 1, 'color' => 'blue', 'code' => 'path=a:0,b:1' },
+        }.freeze
 
         # Versioned, illustrative layouts, NOT transcriptions of official RotLA maps.
         # Keep old versions stable: saved games reconstruct their map from actions.

@@ -10,7 +10,7 @@ module Engine
 
         DEV_STAGE = :prealpha
         GAME_TITLE = 'RotLA'
-        GAME_DISPLAY_TITLE = 'Railways of the Lost Atlas (setup prototype)'
+        GAME_DISPLAY_TITLE = 'Railways of the Lost Atlas (rounds prototype)'
         GAME_ALIASES = ['Railways of the Lost Atlas'].freeze
         GAME_INFO_URL = 'https://www.asterisk-games.com/railwaysofthelostatlas'
         GAME_RULES_URL = 'https://www.asterisk-games.com/rulebook'

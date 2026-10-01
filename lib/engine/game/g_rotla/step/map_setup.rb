@@ -176,7 +176,7 @@ module Engine
           end
 
           def description
-            'Map ready — gameplay is not implemented'
+            @game.real_setup ? 'Map ready — start the Stock Round' : 'Map ready'
           end
 
           def choice_name
@@ -186,16 +186,24 @@ module Engine
           def choices
             return { 'reopen' => 'Try another rotation' } if @game.review_tile
 
-            { 'reopen' => @game.map_id ? 'Reopen map setup' : 'Build another map' }
+            choices = { 'reopen' => @game.map_id ? 'Reopen map setup' : 'Build another map' }
+            choices['play_v1'] = 'Start auctions and Stock Round' if @game.real_setup
+            choices
           end
 
           def choice_explanation
             ['The confirmed map is available in the regular Map tab. Save/export and undo/redo preserve your selection.',
-             'All setup is complete. Gameplay is not implemented. '\
+             'Start the Stock Round to auction minor companies and trade shares, then operate them. '\
              'Build another map to start over, or use Undo to revise a placement.']
           end
 
           def process_choose(action)
+            if action.choice == 'play_v1'
+              @game.start_play!
+              pass!
+              return
+            end
+
             raise GameError, 'Unknown map choice' unless action.choice == 'reopen'
 
             @log << "#{action.entity.name} reopens map setup"
