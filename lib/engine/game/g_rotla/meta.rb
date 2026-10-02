@@ -18,20 +18,12 @@ module Engine
         OPTIONAL_RULES = [
           {
             sym: :distant_revenue_20_30_50_80,
-            group: :distant_destination_revenue,
-            group_name: 'Distant destination revenue card',
-            group_default: '30, 40, 70, 100 (default)',
             short_name: 'Distant destinations: 20, 30, 50, 80',
-            group_option_name: '20, 30, 50, 80',
             desc: 'Use this revenue card instead of the default 30, 40, 70, 100 (yellow, green, brown, gray).',
           },
           {
             sym: :distant_revenue_30_60_90_30,
-            group: :distant_destination_revenue,
-            group_name: 'Distant destination revenue card',
-            group_default: '30, 40, 70, 100 (default)',
             short_name: 'Distant destinations: 30, 60, 90, 30',
-            group_option_name: '30, 60, 90, 30',
             desc: 'Use this revenue card instead of the default 30, 40, 70, 100 (yellow, green, brown, gray).',
           },
           {
@@ -54,7 +46,14 @@ module Engine
           },
         ].freeze
 
-        def self.check_options(options, min_players, max_players)
+        MUTEX_RULES = [
+          %i[distant_revenue_20_30_50_80 distant_revenue_30_60_90_30],
+          %i[short_game micro_game_2 micro_game_3],
+        ].freeze
+
+        # The creation form also passes a hidden lobby minimum in hotseat mode.
+        # Validate the selected size here; init_optional_rules checks the actual players.
+        def self.check_options(options, _min_players, max_players)
           rules = (options || []).map(&:to_sym)
           if (rules & %i[distant_revenue_20_30_50_80 distant_revenue_30_60_90_30]).size > 1
             return { error: 'Choose only one distant destination revenue card.' }
@@ -66,7 +65,7 @@ module Engine
           return { error: 'Short Game is not available for five players.' } if rules.include?(:short_game) && max_players == 5
 
           [2, 3].each do |players|
-            if rules.include?("micro_game_#{players}".to_sym) && (min_players != players || max_players != players)
+            if rules.include?("micro_game_#{players}".to_sym) && (max_players && max_players != players)
               return { error: "The #{players}-player Micro Game requires exactly #{players} players." }
             end
           end

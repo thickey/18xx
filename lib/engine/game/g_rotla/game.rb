@@ -33,7 +33,7 @@ module Engine
         STARTING_CASH = { 2 => 450, 3 => 300, 4 => 275, 5 => 220 }.freeze
         CERT_LIMIT = 99
         MARKET = Economy::MARKET
-        STOCKMARKET_COLORS = Base::STOCKMARKET_COLORS.merge(par: :yellow, par_1: :green, par_2: :tile_brown).freeze
+        STOCKMARKET_COLORS = Base::STOCKMARKET_COLORS.merge(par: :yellow, par_1: :green, par_2: :brown).freeze
         MARKET_TEXT = Base::MARKET_TEXT.merge(par: 'Par values available from Yellow Phase',
                                               par_1: 'Additional par values from Green Phase',
                                               par_2: 'Additional par values from Brown Phase').freeze

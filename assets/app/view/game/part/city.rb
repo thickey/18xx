@@ -17,7 +17,6 @@ module View
         needs :tile
         needs :city
         needs :show_revenue
-        needs :game, default: nil
 
         # key is how many city slots are part of the city; value is the offset for
         # the first city slot
@@ -353,14 +352,6 @@ module View
 
           revenue = revenues.first
           return if revenue.zero? && (!@city.pass? || @tile.paths.empty?)
-
-          if @game.respond_to?(:tile_city_revenue_position) && (position = @game.tile_city_revenue_position(@tile, @city))
-            return h(Part::SingleRevenue,
-                     revenue: revenue,
-                     transform: "translate(#{position[:x]} #{position[:y]}) rotate(#{-render_location[:angle]}) " \
-                                "#{rotation_for_layout}",
-                     force: @city.pass?)
-          end
 
           regions = []
 

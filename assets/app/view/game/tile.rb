@@ -22,7 +22,6 @@ module View
       needs :routes, default: []
       needs :show_coords, default: nil
       needs :show_tiles, default: nil
-      needs :hide_revenue, default: false
 
       # helper method to pass @tile and @region_use to every part
       def render_tile_part(part_class, **kwargs)
@@ -76,13 +75,11 @@ module View
         #   the DOM; parts at the end of the array render on top of ealier parts
         children = []
 
-        render_revenue = !@hide_revenue && should_render_revenue?
+        render_revenue = should_render_revenue?
         if !@tile.paths.empty? || !@tile.stubs.empty? || !@tile.future_paths.empty?
           children << render_tile_part(Part::Track, routes: @routes)
         end
-        unless @tile.cities.empty?
-          children << render_tile_part(Part::Cities, game: @game, show_revenue: !@hide_revenue && !render_revenue)
-        end
+        children << render_tile_part(Part::Cities, show_revenue: !render_revenue) unless @tile.cities.empty?
 
         children << render_tile_part(Part::Towns, routes: @routes, show_revenue: !render_revenue) unless @tile.towns.empty?
 
@@ -92,8 +89,7 @@ module View
           rendered_loc_name = render_tile_part(Part::LocationName)
         end
         revenue = render_tile_part(Part::Revenue) if render_revenue
-        label_position = @game.tile_label_position(@tile) if @game.respond_to?(:tile_label_position)
-        @tile.labels.each { |l| children << render_tile_part(Part::Label, label: l, position: label_position) }
+        @tile.labels.each { |l| children << render_tile_part(Part::Label, label: l) }
 
         render_tile_parts_by_loc(
           Part::Upgrades,

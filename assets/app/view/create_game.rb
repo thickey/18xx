@@ -36,12 +36,8 @@ module View
 
     def render_create_button(check_options: true)
       error = check_options &&
-              selected_game_or_variant.check_options(@optional_rules, option_min_players, @max_players)&.[](:error)
+              selected_game_or_variant.check_options(@optional_rules, @min_players, @max_players)&.[](:error)
       (render_button('Create', { style: { margin: '0.5rem 1rem 1rem 0' }, attrs: { disabled: !!error } }) { submit })
-    end
-
-    def option_min_players
-      @mode == :hotseat ? @max_players : @min_players
     end
 
     def render_content
@@ -272,7 +268,7 @@ module View
       end.compact
 
       optional_rules = selected_game_or_variant::OPTIONAL_RULES.map do |o_r|
-        next if o_r[:hidden] || o_r[:group]
+        next if o_r[:hidden]
 
         desc_text = o_r[:desc] ? ": #{o_r[:desc]}" : ''
         parenthetical = ''
@@ -303,30 +299,6 @@ module View
         )])
       end.compact
 
-      selected_game_or_variant::OPTIONAL_RULES.reject { |rule| rule[:hidden] || !rule[:group] }
-        .group_by { |rule| rule[:group] }.each do |group, rules|
-          selected = rules.find { |rule| @optional_rules.include?(rule[:sym]) }&.[](:sym).to_s
-          options = [h(:option, { attrs: { value: '', selected: selected.empty? } }, rules.first[:group_default])]
-          options.concat(rules.map do |rule|
-            h(:option, { attrs: { value: rule[:sym], selected: selected == rule[:sym].to_s } },
-              rule[:group_option_name] || rule[:short_name])
-          end)
-          optional_rules << h(:li, [render_input(
-            rules.first[:group_name],
-            id: group,
-            el: 'select',
-            children: options,
-            on: {
-              change: lambda do |event|
-                @optional_rules -= rules.map { |rule| rule[:sym] }
-                value = Native(event)['target']['value']
-                @optional_rules << value.to_sym unless value.empty?
-                store(:optional_rules, @optional_rules)
-              end,
-            },
-          )])
-        end
-
       ul_props = {
         style: {
           listStyle: 'none',
@@ -340,7 +312,7 @@ module View
         h(:ul, ul_props, [*game_variants, *optional_rules]),
       ]
 
-      checked_options = selected_game_or_variant.check_options(@optional_rules, option_min_players, @max_players)
+      checked_options = selected_game_or_variant.check_options(@optional_rules, @min_players, @max_players)
       if checked_options
         if (info = checked_options[:info])
           children.concat(
@@ -501,10 +473,9 @@ module View
 
       return store(:flash_opts, 'Cannot have duplicate player names') if players.uniq.size != players.size
 
-      actual_players = @mode == :json ? game_data[:players].size : players.size
       checked_options = Engine.meta_by_title(game_data[:title])
                           .check_options(game_data[:settings][:optional_rules],
-                                         actual_players, actual_players)
+                                         game_data[:min_players], game_data[:max_players])
       if (options_error_msg = checked_options&.[](:error))
         return store(:flash_opts, "game_data Optional Rules Error: #{options_error_msg}")
       end
@@ -530,11 +501,6 @@ module View
         params[:optional_rules] = game::OPTIONAL_RULES
                                     .map { |o_r| o_r[:sym] }
                                     .select { |rule| params.delete(rule) }
-        game::OPTIONAL_RULES.select { |rule| rule[:group] }.group_by { |rule| rule[:group] }.each do |group, rules|
-          value = params.delete(group).to_s
-          selected = rules.find { |rule| rule[:sym].to_s == value }
-          params[:optional_rules] << selected[:sym] if selected
-        end
       end
 
       params

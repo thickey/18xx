@@ -47,7 +47,12 @@ module Engine
       expect(meta::OPTIONAL_RULES.find { |rule| rule[:sym] == :micro_game_2 }[:players]).to eq([2])
       expect(meta::OPTIONAL_RULES.find { |rule| rule[:sym] == :micro_game_3 }[:players]).to eq([3])
       expect(meta.check_options([:short_game], 5, 5)[:error]).to include('five')
-      expect(meta.check_options([:micro_game_3], 2, 3)[:error]).to include('exactly 3')
+      expect(meta.check_options([:micro_game_3], 2, 2)[:error]).to include('exactly 3')
+      expect(meta.check_options([:micro_game_3], 2, 3)).to be_nil
+      expect(meta.check_options([:micro_game_3], nil, nil)).to be_nil
+      expect(meta::MUTEX_RULES).to include(%i[short_game micro_game_2 micro_game_3])
+      expect(meta::MUTEX_RULES).to include(%i[distant_revenue_20_30_50_80 distant_revenue_30_60_90_30])
+      expect { game_for(2, [:micro_game_3]) }.to raise_error(GameError, /exactly 3/)
       expect(meta.check_options(%i[short_game micro_game_2], 2, 2)[:error]).to include('only one')
       expect { game_for(4, [:micro_game_3]) }.to raise_error(GameError, /exactly 3/)
       expect { game_for(2, %i[short_game micro_game_2]) }.to raise_error(GameError, /only one/)

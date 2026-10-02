@@ -155,7 +155,7 @@ module View
       end
 
       def builder_style
-        { style: { width: '100%' } }
+        { style: { width: 'min(80rem, calc(100vw - 4rem))', maxWidth: '100%' } }
       end
 
       def rotate(delta)
@@ -329,7 +329,7 @@ module View
         end
         unless terrain == :border
           children << h(:g, { attrs: { transform: "translate(#{x} #{y}) scale(0.36)" } }, [
-            h(Tile, tile: hex.tile, game: @game, hide_revenue: hex.tile.color == :red),
+            h(Tile, tile: hex.tile, game: @game),
           ])
         end
         h(:g, { style: { pointerEvents: 'none' } }, children)

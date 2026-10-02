@@ -127,13 +127,6 @@ module Engine
           [2, 3].map { |edge| (edge + rotation) % 6 }
         end
 
-        def tile_label_position(tile)
-          return if !tile.hex || water_edges_for(tile.hex).empty?
-
-          angle = (240 + (60 * @placements.first[:rotation])) * Math::PI / 180
-          { x: 61 * Math.cos(angle), y: 61 * Math.sin(angle), region_weights: {} }
-        end
-
         def offboard_shared_edge(terrain, rotation)
           return unless [27, 28].include?(@review_tile)
           return unless %i[offboard offboard_join].include?(terrain)
