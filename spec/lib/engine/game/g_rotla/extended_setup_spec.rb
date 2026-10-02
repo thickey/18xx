@@ -33,6 +33,15 @@ module Engine
       end
     end
 
+    it 'starts construction and draws the first piece in one action' do
+      game = described_class.new(%w[Alice Bob Carol], id: '1', optional_rules: [:short_game])
+      choose(game, 'start_build_v5')
+      expect(game.real_setup).to be(true)
+      expect(game.current_piece).not_to be_nil
+      expect(game.placements).to be_empty
+      expect(game.clone(game.raw_actions).current_piece).to eq(game.current_piece)
+    end
+
     it 'exposes player-count restrictions and rejects incompatible modes before setup' do
       meta = described_class.meta
       expect(meta::OPTIONAL_RULES.find { |rule| rule[:sym] == :micro_game_2 }[:players]).to eq([2])
@@ -78,9 +87,10 @@ module Engine
         expect(game.blank_hex_phase?).to be(true)
         expect(game.setup_complete?).to be(false)
         expect(game.round).to be_instance_of(Game::GRotla::Round::Setup)
-        choose(game, 'finish_blanks_v5')
+        choose(game, 'finish_setup_v5')
         expect(game.setup_complete?).to be(true)
-        expect(game.round).to be_instance_of(Game::GRotla::Round::MapReady)
+        expect(game.round).to be_instance_of(Game::GRotla::Round::Stock)
+        expect(game.playing).to be(true)
       end
     end
 
@@ -112,7 +122,7 @@ module Engine
       placed = game.blank_hexes.size
       expect(placed).to be <= 12
       expect(game.blank_hex_anchors).to be_empty
-      choose(game, 'finish_blanks_v5')
+      choose(game, 'finish_setup_v5')
       expect(game.clone(game.raw_actions).hexes.size).to eq(original_count + placed)
     end
 

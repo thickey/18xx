@@ -10,6 +10,7 @@ module View
 
       needs :rotla_rotation, default: 0, store: true
       needs :rotla_anchor, default: nil, store: true
+      needs :rotla_hover_anchor, default: nil, store: true
       needs :rotla_context, default: nil, store: true
 
       COLORS = {
@@ -40,56 +41,56 @@ module View
         if @rotla_context != context
           @rotla_rotation = 0
           @rotla_anchor = nil
+          @rotla_hover_anchor = nil
           store(:rotla_context, context, skip: true)
           store(:rotla_rotation, 0, skip: true)
           store(:rotla_anchor, nil, skip: true)
+          store(:rotla_hover_anchor, nil, skip: true)
         end
         return render_blank_hex_setup if @game.blank_hex_phase?
 
+        @anchors = []
+        @occupied = @game.placed_cells
+        @preview = []
+
         if @game.drawn_project
-          return h(:div, [
+          return h(:div, builder_style, [
             h(:h3, "#{@game.current_entity.name}: Capital project"),
-            h(:p, 'Upgrade a placed basic city to a capital. Reserved minor homes cannot be chosen.'),
-            *@game.capital_choices.map do |q, r|
-              coordinate = @game.map_coordinate(q, r)
-              h(:button, {
-                  on: {
-                    click: lambda {
-                      process_action(Engine::Action::Choose.new(@game.current_entity,
-                                                                choice: "capital_v4:#{q}:#{r}"))
-                    },
-                  },
-                },
-                "Capital at #{coordinate}")
-            end,
-          ])
+            h(:p, 'Click a highlighted basic city on the map to upgrade it to a capital. Reserved minor homes cannot be chosen.'),
+            (@occupied.empty? ? nil : render_board),
+          ].compact)
         end
         if @game.current_piece.nil?
           fresh = !@game.real_setup && @game.placements.empty?
-          count = fresh ? @game.setup_piece_count : @game.piece_count
-          action = if fresh
-                     'start_v5'
-                   else
-                     (@game.real_setup ? 'draw_v4' : 'draw_v2')
-                   end
-          return h(:div, [
+          if fresh
+            return h(:div, {
+                       hook: {
+                         insert: lambda do |_vnode|
+                           next if Lib::Params['action']
+                           next if !hotseat? && !@game.active_players_id.include?(@user&.dig('id'))
+
+                           process_action(Engine::Action::Choose.new(@game.current_entity, choice: 'start_build_v5'))
+                         end,
+                       },
+                     })
+          end
+          count = @game.piece_count
+          action = @game.real_setup ? 'draw_v4' : 'draw_v2'
+          return h(:div, builder_style, [
             h(:h3, "#{@game.current_entity.name}'s turn — #{@game.placements.size}/#{count} pieces placed"),
-            h(:p, if fresh
-                    "#{@game.setup_mode_name}: #{count} pieces and #{@game.capital_count} capital projects. "\
-                      'A random player starts; all destinations use the recommended 30/40/70/100 revenue card.'
-                  else
-                    'Draw the next piece or capital project, then resolve it.'
-                  end),
+            h(:p, 'Draw the next piece or capital project, then resolve it.'),
             h(:button, { on: { click: -> { process_action(Engine::Action::Choose.new(@game.current_entity, choice: action)) } } },
-              fresh ? 'Start real map setup' : 'Draw a piece'),
-          ])
+              'Draw a piece'),
+            (@occupied.empty? ? nil : render_board),
+          ].compact)
         end
         @anchors = @game.legal_anchors(@rotla_rotation)
         @rotla_anchor = nil unless @anchors.include?(@rotla_anchor)
         @occupied = @game.placed_cells
-        @preview = @rotla_anchor ? @game.piece_cells(*@rotla_anchor, @rotla_rotation) : []
+        preview_anchor = @rotla_hover_anchor || @rotla_anchor
+        @preview = preview_anchor ? @game.piece_cells(*preview_anchor, @rotla_rotation) : []
 
-        h(:div, { style: { width: '100%', maxWidth: '960px' } }, [
+        h(:div, builder_style, [
           h(:h3, if @game.review_tile
                    @game.piece_name
                  else
@@ -99,7 +100,7 @@ module View
                   "Rotate tile #{@game.review_tile}, select the blue anchor, then place it to inspect it in the Map tab."
                 else
                   'Each player draws and places one random triangular piece, then passes to the next player. '\
-                    'Select a blue anchor, rotate, then place. '\
+                    'Rotate, hover over a blue + to preview, then click to lock the choice and place. '\
                     'Each new piece must share at least three edges with the map and avoid border hexes.'
                 end),
           render_piece,
@@ -115,7 +116,7 @@ module View
           h(:p, if @rotla_anchor
                   "Preview anchored at #{@game.map_coordinate(*@rotla_anchor)}. Green outlines show the new piece."
                 else
-                  'Choose a blue anchor on the board to preview a placement.'
+                  'Hover over a blue + to preview a placement; click to lock the choice.'
                 end),
           render_board,
           if @game.real_setup
@@ -147,22 +148,31 @@ module View
                   end
                 else
                   'Mountain terrain costs 40. Blue water is unreachable except through bridge track. '\
-                    'C marks a capital. Destinations share the recommended 30/40/70/100 card. '\
+                    "C marks a capital. Destinations share the #{destination_revenues} card. "\
                     'The map is ready when every piece and capital project is resolved.'
                 end),
         ])
+      end
+
+      def builder_style
+        { style: { width: '100%' } }
       end
 
       def rotate(delta)
         store(:rotla_rotation, (@rotla_rotation + delta) % 6)
       end
 
+      def destination_revenues
+        @game.distant_destination_revenue.split('|').map { |phase| phase.split('_').last }.join('/')
+      end
+
       def render_blank_hex_setup
         @anchors = @game.blank_hex_anchors
         @rotla_anchor = nil unless @anchors.include?(@rotla_anchor)
         @occupied = @game.placed_cells
-        @preview = @rotla_anchor ? [[*@rotla_anchor, :blank]] : []
-        h(:div, [
+        preview_anchor = @rotla_hover_anchor || @rotla_anchor
+        @preview = preview_anchor ? [[*preview_anchor, :blank]] : []
+        h(:div, builder_style, [
           h(:h3, "Optional blank hexes — #{@game.blank_hexes.size}/12 placed"),
           h(:p, 'Add empty land next to minor homes that need room to grow. Select a blue anchor to preview. '\
                 'Blanks cannot overlap or touch a border hex. You may finish without using all 12.'),
@@ -179,7 +189,7 @@ module View
               on: {
                 click: lambda {
                   process_action(Engine::Action::Choose.new(@game.current_entity,
-                                                            choice: 'finish_blanks_v5'))
+                                                            choice: 'finish_setup_v5'))
                 },
               },
             },
@@ -227,10 +237,28 @@ module View
 
       def render_board
         coords = (@anchors + @occupied.map { |q, r, _| [q, r] } + @preview.map { |q, r, _| [q, r] }).uniq
+        if @game.current_piece && !@game.blank_hex_phase?
+          coords += @anchors.flat_map { |q, r| @game.piece_cells(q, r, @rotla_rotation).map { |x, y, _| [x, y] } }
+        end
         xs, ys = coords.map { |q, r| center(q, r) }.transpose
         cells = @anchors.map { |q, r| render_anchor(q, r) }
-        cells.concat(@occupied.map { |q, r, terrain| render_hex(q, r, terrain) })
-        cells.concat(@preview.map { |q, r, terrain| render_hex(q, r, terrain, preview: true, rotation: @rotla_rotation) })
+        cells.concat(@occupied.map do |q, r, terrain|
+          hex = render_hex(q, r, terrain)
+          next hex if !@game.drawn_project || !@game.capital_choices.include?([q, r])
+
+          x, y = center(q, r)
+          choose = lambda do
+            process_action(Engine::Action::Choose.new(@game.current_entity, choice: "capital_v4:#{q}:#{r}"))
+          end
+          h(:g, {
+              attrs: { role: 'button', tabindex: 0, 'aria-label': "Choose capital at #{@game.map_coordinate(q, r)}" },
+              style: { cursor: 'pointer' },
+              on: { click: choose, keydown: ->(event) { choose.call if %w[Enter Space].include?(event.code) } },
+            }, [hex, h(:circle, attrs: { cx: x, cy: y, r: 25, fill: 'transparent', stroke: '#49ecb3', 'stroke-width': 3 })])
+        end)
+        opacity = @rotla_hover_anchor && @rotla_hover_anchor != @rotla_anchor ? 0.55 : 1
+        cells << h(:g, { attrs: { opacity: opacity }, style: { pointerEvents: 'none' } },
+                   @preview.map { |q, r, terrain| render_hex(q, r, terrain, preview: true, rotation: @rotla_rotation) })
         h(:svg, {
             attrs: {
               viewBox: "#{xs.min - 45} #{ys.min - 45} #{xs.max - xs.min + 90} #{ys.max - ys.min + 90}",
@@ -250,6 +278,10 @@ module View
             attrs: { role: 'button', tabindex: 0, 'aria-label': "Preview at #{@game.map_coordinate(q, r)}" },
             style: { cursor: 'pointer' },
             on: {
+              mouseenter: -> { store(:rotla_hover_anchor, [q, r]) },
+              mouseleave: -> { store(:rotla_hover_anchor, nil) },
+              focus: -> { store(:rotla_hover_anchor, [q, r]) },
+              blur: -> { store(:rotla_hover_anchor, nil) },
               click: select,
               keydown: ->(event) { select.call if %w[Enter Space].include?(event.code) },
             },
@@ -317,7 +349,7 @@ module View
                           fill: COLORS[terrain],
                           stroke: shared_edge ? 'none' : outline_color,
                           'stroke-width': preview ? 3 : 1,
-                          opacity: preview ? 0.75 : 1,
+                          opacity: 1,
                         },
                       })]
         if shared_edge
@@ -330,7 +362,7 @@ module View
                             fill: 'none',
                             stroke: outline_color,
                             'stroke-width': preview ? 3 : 1,
-                            opacity: preview ? 0.75 : 1,
+                            opacity: 1,
                           })
           end
         end

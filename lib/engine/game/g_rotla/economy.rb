@@ -18,7 +18,7 @@ module Engine
           'SU' => 'Suburban',
           'TU' => 'Tunneling',
         }.freeze
-        COLORS = %w[#8865a9 #318653 #61a798 #986440 #c76291 #b63f49 #315785 #626949 #98744b #668349 #b76995 #77716b].freeze
+        COLORS = %w[#a396b5 #3d7f5c #5ab9aa #b28265 #e3768f #b3595c #37687d #383633 #f2dfbb #96c98a #efaea1 #b3aea1].freeze
         POWERS = {
           'AD' => 'Choose an empty basic home city when launching.',
           'AG' => 'May lay a yellow tile after upgrading track.',
@@ -41,6 +41,16 @@ module Engine
           'Syn' => 'Syndicate',
           'Unl' => 'Unlimited',
         }.freeze
+        MAJOR_ALTERNATE_NAMES = {
+          'Con' => 'Consortium',
+          'Exp' => 'Enterprise',
+          'Fed' => 'Firm',
+          'Int' => 'Incorporated',
+          'Syn' => 'System',
+          'Unl' => 'Union',
+        }.freeze
+        MAJOR_COLORS = %w[#d85146 #986a8a #83a961 #9cc0c6 #efb95e #e28d53].freeze
+
         CORPORATIONS = (NAMES.map.with_index do |(sym, name), index|
           {
             sym: sym,
@@ -52,6 +62,7 @@ module Engine
             always_market_price: true,
             type: 'minor',
             color: COLORS[index],
+            text_color: %w[AG ER NP OV].include?(sym) ? '#ffffff' : '#000000',
             logo: "rotla/#{sym}",
             simple_logo: "rotla/#{sym}",
             abilities: [{ type: 'description', description: "#{name} power (click for details)", desc_detail: POWERS[sym] }],
@@ -66,12 +77,13 @@ module Engine
             max_ownership_percent: 60,
             always_market_price: true,
             type: 'major',
-            color: COLORS[index],
+            color: MAJOR_COLORS[index],
+            text_color: '#000000',
             logo: "rotla/#{sym}",
             simple_logo: "rotla/#{sym}",
           }
         end).freeze
-        MARKET = [%w[0c 10 20 30 40 50 60p 70p 80p 90p 100p 110p 120p 135p 150 165 180 200 220 245 270 300 330 360 400 450
+        MARKET = [%w[0c 10 20 30 40 50 60p 70p 80p 90p 100x 110x 120z 135z 150 165 180 200 220 245 270 300 330 360 400 450
                      500]].freeze
         PHASES = [
           { name: '2', train_limit: { minor: 2, major: 0 }, tiles: [:yellow], operating_rounds: 2 },
@@ -110,10 +122,6 @@ module Engine
 
         attr_reader :playing, :charter_columns
 
-        def original_rules?
-          @optional_rules.include?(:original_rules)
-        end
-
         def game_trains
           definitions = TRAINS.map do |train|
             definition = train.dup
@@ -122,9 +130,8 @@ module Engine
               definition[:num] = { '2' => @players.size == 2 ? 3 : 5, '3' => @players.size == 2 ? 3 : 4, '4' => 4 }[name]
               definition[:num] = 3 if name == '4' && @players.size == 2
             elsif name != '7'
-              extra_players = original_rules? ? 5 : 4
-              definition[:num] += 1 if name == '3' && @players.size >= extra_players
-              definition[:num] += 1 if name == '6' && !original_rules? && @players.size >= 4
+              definition[:num] += 1 if name == '3' && @players.size >= 4
+              definition[:num] += 1 if name == '6' && @players.size >= 4
               definition[:num] -= 1 if short_map?
             end
             definition

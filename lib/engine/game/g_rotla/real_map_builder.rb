@@ -5,7 +5,7 @@ require_relative 'map_catalog'
 module Engine
   module Game
     module GRotla
-      # The real_v1 catalog and v4 actions are separate from all prototype saves.
+      # The real_v1 catalog and v4 actions are separate from all legacy setup saves.
       module RealMapBuilder
         attr_reader :real_setup, :drawn_project, :capital_cells
 
@@ -32,7 +32,7 @@ module Engine
 
         def start_real_setup!
           if !@round.instance_of?(Round::Setup) || !@placements.empty? || @drawn_piece || @review_tile || @map_id
-            raise GameError, 'Start real setup before drawing or placing prototype pieces'
+            raise GameError, 'Start real setup before drawing or placing legacy setup pieces'
           end
           raise GameError, 'Short Game is not available for five players' if @players.size == 5 && short_map?
           raise GameError, 'Real setup already started' if @real_setup
@@ -163,7 +163,7 @@ module Engine
                  when :offboard, :offboard_join
                    hidden = terrain == :offboard_join ? ',hide:1' : ''
                    exits = MapCatalog::SPECIAL[number][:offboard_exits][terrain]
-                   result = "offboard=revenue:yellow_30|green_40|brown_70|gray_100,rows:2,groups:ROTLA#{piece[:id]}#{hidden};" +
+                   result = "offboard=revenue:#{distant_destination_revenue},rows:2,groups:ROTLA#{piece[:id]}#{hidden};" +
                      exits.map { |e| "path=a:#{edge.call(e)},b:_0" }.join(';')
                    result += ";border=edge:#{edge.call(terrain == :offboard ? 1 : 4)}" if [27, 28].include?(number)
                    result

@@ -23,6 +23,6 @@
       "engine_code": "city=revenue:20,slots:2;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0;path=a:1,b:_0"
     }
   ],
-  "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+  "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive engine rotations advance engine exits by one modulo six.",
   "review_scope": "Home reservation, geometry and non-upgradability only. Spacious's train-limit ability is not implemented."
 }

@@ -1,6 +1,6 @@
 # RotLA rule editions
 
-New games default to the publisher’s [second-printing rulebook](https://www.asterisk-games.com/s/Railways-EN-2nd-Rulebook.pdf), checked 2026-10-01. The original source PDF remains documented in `data/rotla/sources.json`; the second-printing source and hash are recorded separately.
+The implementation uses the publisher’s [second-printing rulebook](https://www.asterisk-games.com/s/Railways-EN-2nd-Rulebook.pdf), checked 2026-10-01. The original source PDF remains documented in `data/rotla/sources.json`; the second-printing source and hash are recorded separately.
 
 ## Changes applied
 
@@ -12,7 +12,3 @@ New games default to the publisher’s [second-printing rulebook](https://www.as
 Other revised clarifications already covered by the implementation include the gray-phase 135 par, two ORs per cycle, both Port halves counting as one city, immovable suburbs, and Overnight routes never repeating a city.
 
 The scheduled six Long / four Short or Micro cycles still apply; a depleted bank does not end the default game.
-
-## Original printing setting
-
-Select **Original printing rules** in game settings to retain the historical train roster and emergency-sale behavior. This is primarily a replay compatibility setting, not a claim that every original rule is implemented. Four-player saves created before this change may need `original_rules` added to their JSON `optional_rules` to preserve the old train IDs and roster. Three-player supplied Hotseat fixtures have unchanged train rosters.

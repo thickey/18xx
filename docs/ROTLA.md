@@ -105,7 +105,7 @@ Existing `draw_v2` / `place_v1`–`place_v3`, preset-picker saves, and
 `review_tileX_v1` / `place_tileX_v1` saves retain their original definitions and
 handlers. New games no longer expose special tile-review buttons. Loaded legacy
 review saves retain their rotation workflow intentionally; no migration or
-silent reinterpretation occurs. Continue old prototypes as prototypes, or
+silent reinterpretation occurs. Continue legacy games with their original setup, or
 create a new game for the real supply.
 
 `reference-map-3722698.json` preserves a full saved generator reference from

@@ -1,7 +1,7 @@
 # ROTLA source catalog
 
 Prepared 2026-09-26. This is research data for implementing the actual game,
-The frozen real setup catalog is `runtime-map-v1.json`; the original prototype
+The frozen real setup catalog is `runtime-map-v1.json`; the original setup
 definitions remain separate for saved-game replay.
 
 ## What we recovered
@@ -47,7 +47,7 @@ hex grid using x and y as axial coordinates. The research catalog translates
 Hex1 to the origin, then chooses the lexicographically smallest of its six
 rotations while preserving Hex1/2/3 labels and handedness. It never reflects a
 piece. This is a local coordinate convention, not the artwork's printed pose.
-The current engine prototype uses flat hexes, so display/edge conversion must
+The current engine implementation uses flat hexes, so display/edge conversion must
 be established before importing this geometry into the renderer.
 
 `canonical_facing` follows the client's orientation lookup: nn, ne, se, ss, sw,
@@ -105,7 +105,7 @@ The complete real map supply is integrated through the versioned Ruby catalog
 `runtime-map-v1.json` for its cells, home metadata, approved special records and
 ordinary-cell rules. `MAP-INVENTORY.md` remains the physical-piece index. Run
 `python3 scripts/rotla/build_runtime_catalog.py --check` to check catalog drift.
-New games use real setup; old prototype/review actions retain their original
+New games use real setup; legacy setup/review actions retain their original
 definitions. The normal map and previews use the same tile codes.
 
 Basic cities and ordinary homes start at revenue zero with one slot; mountains

@@ -1285,7 +1285,7 @@
   "special_approved_sources": {
     "2": {
       "printed_tile": 2,
-      "status": "User-approved prototype rendering and orientation",
+      "status": "User-approved engine rendering and orientation",
       "home_company": "EM",
       "color": "yellow",
       "label": "M",
@@ -1364,7 +1364,7 @@
         }
       ],
       "cities_connected": false,
-      "standard_city_revenue": "Unconfirmed; prototype zero placeholder",
+      "standard_city_revenue": "Unconfirmed; initial zero placeholder",
       "setup_rules": [
         "Minimum three shared edges after first piece",
         "No contact with border cells of another piece; borders are unreachable during gameplay"
@@ -1373,7 +1373,7 @@
     "9": {
       "printed_tile": 9,
       "generator_tile_id": "09",
-      "status": "User-approved: prototype rendering matches the physical tile",
+      "status": "User-approved: engine rendering matches the physical tile",
       "source": "User description and confirmation in this task",
       "hexes": [
         {
@@ -1413,10 +1413,10 @@
           "engine_code": "city=revenue:30,slots:1;path=a:3,b:_0;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0"
         }
       ],
-      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive engine rotations advance engine exits by one modulo six.",
       "review_scope": "Home reservation and geometry only; no train operations, bridge-laying ability or full official setup rules are introduced.",
       "approval": {
-        "source": "User visual review of the working prototype in this task",
+        "source": "User visual review of the working implementation in this task",
         "confirmed": [
           "Relative positions of water, plain and Bridging home",
           "Four consecutive exits connecting to the same city",
@@ -1472,7 +1472,7 @@
           "engine_code": "city=revenue:20,slots:2;path=a:4,b:_0;path=a:5,b:_0;path=a:0,b:_0;path=a:1,b:_0"
         }
       ],
-      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive prototype rotations advance engine exits by one modulo six.",
+      "coordinate_note": "This pose is the research catalog's canonical pose rotated three steps. Positive engine rotations advance engine exits by one modulo six.",
       "review_scope": "Home reservation, geometry and non-upgradability only. Spacious's train-limit ability is not implemented."
     },
     "26": {

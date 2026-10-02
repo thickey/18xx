@@ -105,6 +105,30 @@ module Engine
       end
     end
 
+    it 'applies each distant destination revenue card to both halves of every destination' do
+      {
+        nil => [30, 40, 70, 100],
+        :distant_revenue_20_30_50_80 => [20, 30, 50, 80],
+        :distant_revenue_30_60_90_30 => [30, 60, 90, 30],
+      }.each do |option, revenues|
+        game = new_real_game(optional_rules: [option].compact)
+        game.real_catalog.each_with_index do |piece, index|
+          piece[:terrain].each do |terrain|
+            next unless %i[offboard offboard_join].include?(terrain)
+
+            hex = game.real_preview_hex(0, 0, terrain, 0, index)
+            expect(hex.tile.offboards.first.revenue).to eq(%i[yellow green brown gray].zip(revenues).to_h)
+          end
+        end
+      end
+    end
+
+    it 'rejects selecting multiple distant destination revenue cards' do
+      expect do
+        new_real_game(optional_rules: %i[distant_revenue_20_30_50_80 distant_revenue_30_60_90_30])
+      end.to raise_error(GameError, /only one distant destination revenue card/)
+    end
+
     it 'preserves a pending draw through undo/redo and can undo a reshuffled restart' do
       game = new_real_game
       choose(game, 'draw_v4')
@@ -203,7 +227,7 @@ module Engine
       expect(port.tile.cities.first.reservations.first.id).to eq('NP')
     end
 
-    it 'rejects mixed prototype actions and keeps old saves on the four-piece supply' do
+    it 'rejects mixed legacy setup actions and keeps old saves on the four-piece supply' do
       game = new_real_game
       expect { choose(game, 'draw_v2') }.to raise_error(GameError, /mix/)
       legacy = described_class.new(%w[Alice Bob], id: '1')

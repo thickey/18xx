@@ -10,16 +10,29 @@ module Engine
 
         DEV_STAGE = :prealpha
         GAME_TITLE = 'RotLA'
-        GAME_DISPLAY_TITLE = 'Railways of the Lost Atlas (rounds prototype)'
+        GAME_DISPLAY_TITLE = 'Railways of the Lost Atlas'
         GAME_ALIASES = ['Railways of the Lost Atlas'].freeze
         GAME_INFO_URL = 'https://www.asterisk-games.com/railwaysofthelostatlas'
         GAME_RULES_URL = 'https://www.asterisk-games.com/rulebook'
         PLAYER_RANGE = [2, 5].freeze
         OPTIONAL_RULES = [
           {
-            sym: :original_rules,
-            short_name: 'Original printing rules',
-            desc: 'Use the original train roster: extra 3 only for five players, and no extra 6. Default is second printing.',
+            sym: :distant_revenue_20_30_50_80,
+            group: :distant_destination_revenue,
+            group_name: 'Distant destination revenue card',
+            group_default: '30, 40, 70, 100 (default)',
+            short_name: 'Distant destinations: 20, 30, 50, 80',
+            group_option_name: '20, 30, 50, 80',
+            desc: 'Use this revenue card instead of the default 30, 40, 70, 100 (yellow, green, brown, gray).',
+          },
+          {
+            sym: :distant_revenue_30_60_90_30,
+            group: :distant_destination_revenue,
+            group_name: 'Distant destination revenue card',
+            group_default: '30, 40, 70, 100 (default)',
+            short_name: 'Distant destinations: 30, 60, 90, 30',
+            group_option_name: '30, 60, 90, 30',
+            desc: 'Use this revenue card instead of the default 30, 40, 70, 100 (yellow, green, brown, gray).',
           },
           {
             sym: :short_game,
@@ -43,6 +56,10 @@ module Engine
 
         def self.check_options(options, min_players, max_players)
           rules = (options || []).map(&:to_sym)
+          if (rules & %i[distant_revenue_20_30_50_80 distant_revenue_30_60_90_30]).size > 1
+            return { error: 'Choose only one distant destination revenue card.' }
+          end
+
           modes = rules & %i[short_game micro_game_2 micro_game_3]
           return { error: 'Choose only one of Short Game, 2-player Micro Game, or 3-player Micro Game.' } if modes.size > 1
 

@@ -272,7 +272,7 @@ module View
       end.compact
 
       optional_rules = selected_game_or_variant::OPTIONAL_RULES.map do |o_r|
-        next if o_r[:hidden]
+        next if o_r[:hidden] || o_r[:group]
 
         desc_text = o_r[:desc] ? ": #{o_r[:desc]}" : ''
         parenthetical = ''
@@ -302,6 +302,30 @@ module View
           on: { input: toggle_optional_rule(o_r[:sym]) },
         )])
       end.compact
+
+      selected_game_or_variant::OPTIONAL_RULES.reject { |rule| rule[:hidden] || !rule[:group] }
+        .group_by { |rule| rule[:group] }.each do |group, rules|
+          selected = rules.find { |rule| @optional_rules.include?(rule[:sym]) }&.[](:sym).to_s
+          options = [h(:option, { attrs: { value: '', selected: selected.empty? } }, rules.first[:group_default])]
+          options.concat(rules.map do |rule|
+            h(:option, { attrs: { value: rule[:sym], selected: selected == rule[:sym].to_s } },
+              rule[:group_option_name] || rule[:short_name])
+          end)
+          optional_rules << h(:li, [render_input(
+            rules.first[:group_name],
+            id: group,
+            el: 'select',
+            children: options,
+            on: {
+              change: lambda do |event|
+                @optional_rules -= rules.map { |rule| rule[:sym] }
+                value = Native(event)['target']['value']
+                @optional_rules << value.to_sym unless value.empty?
+                store(:optional_rules, @optional_rules)
+              end,
+            },
+          )])
+        end
 
       ul_props = {
         style: {
@@ -506,6 +530,11 @@ module View
         params[:optional_rules] = game::OPTIONAL_RULES
                                     .map { |o_r| o_r[:sym] }
                                     .select { |rule| params.delete(rule) }
+        game::OPTIONAL_RULES.select { |rule| rule[:group] }.group_by { |rule| rule[:group] }.each do |group, rules|
+          value = params.delete(group).to_s
+          selected = rules.find { |rule| rule[:sym].to_s == value }
+          params[:optional_rules] << selected[:sym] if selected
+        end
       end
 
       params

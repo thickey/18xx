@@ -1,6 +1,6 @@
 # RotLA: early rounds in Hotseat
 
-The rounds prototype supports the initial minor launch auctions, starting
+The implementation supports the initial minor launch auctions, starting
 companies, treasury and bank-pool share purchases, share sales, and Operating
 Rounds and normal minor mergers. It defaults to the publisher’s second-printing rules; see [edition details](ROTLA-EDITIONS.md). The stock track is visually transcribed from the table setup
 image on printed page 9. This is an early-round implementation, not a complete
@@ -33,7 +33,7 @@ local Hotseat save.
 
 To use your own map, create a Hotseat game, finish tri-hex/capital/blank setup,
 then click **Start auctions and Stock Round** on Map Ready. Existing real-map
-saves can also start rounds with that button. Prototype tile reviews do not
+saves can also start rounds with that button. Legacy tile reviews do not
 start rounds. Refresh an already open page to load the new code.
 
 ## A reproducible walkthrough

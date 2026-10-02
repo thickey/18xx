@@ -50,7 +50,7 @@
     }
   ],
   "cities_connected": false,
-  "standard_city_revenue": "Unconfirmed; prototype zero placeholder",
+  "standard_city_revenue": "Unconfirmed; initial zero placeholder",
   "setup_rules": [
     "Minimum three shared edges after first piece",
     "No contact with border cells of another piece; borders are unreachable during gameplay"

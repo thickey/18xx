@@ -7,8 +7,7 @@ module Engine
         LAYOUT = :flat
         # Empty water has no paths; connecting its edges lets Bridging reach it.
         IMPASSABLE_HEX_COLORS = %i[gray red].freeze
-        # FWTWR reference IDs; purple physical tiles use the engine brown phase.
-        # FWTWR reference IDs; purple physical tiles use the engine brown phase.
+        # FWTWR reference IDs; tiles use the standard engine phase colors.
         TILES = {
           '5' => 5,
           '6' => 7,

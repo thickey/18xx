@@ -20,6 +20,7 @@ module View
         red: '#ffaaaa',
         blue: '#35a7ff',
         brown: '#8b4513',
+        tile_brown: Lib::Hex::COLOR[:brown],
         orange: '#ffbb55',
         yellow: '#ffff99',
         black: '#000000',

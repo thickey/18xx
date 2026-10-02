@@ -38,20 +38,25 @@ module Engine
           end
 
           def choice_explanation
-            ['Setup prototype only. These are illustrative maps, not official RotLA presets.',
+            ['Legacy setup preview only. These are illustrative maps, not official RotLA presets.',
              'Choose a layout, inspect the Map tab, then confirm. The first player controls this shared setup.',
-             'Auctions, minors, majors, trains, and company powers are not implemented yet.']
+             'Start a new game to use the current map supply and full game flow.']
           end
 
           def process_choose(action)
-            if action.choice == 'start_v5'
+            if %w[start_v5 start_build_v5].include?(action.choice)
               @game.start_extended_setup!
               @log << "Real map setup begins (#{@game.setup_mode_name}); #{current_entity.name} starts"
+              if action.choice == 'start_build_v5'
+                @game.draw_real_piece!
+                @log << "#{current_entity.name} draws #{@game.piece_name}"
+              end
               return
             end
 
-            if action.choice == 'finish_blanks_v5'
+            if %w[finish_blanks_v5 finish_setup_v5].include?(action.choice)
               @game.finish_blank_hexes!
+              @game.start_play! if action.choice == 'finish_setup_v5'
               @log << "#{action.entity.name} finishes optional blank-hex placement"
               pass!
               return
@@ -112,7 +117,7 @@ module Engine
               return
             end
 
-            raise GameError, 'Cannot mix real and prototype setup actions' if @game.real_setup
+            raise GameError, 'Cannot mix real and legacy setup actions' if @game.real_setup
 
             if MapBuilder::REVIEW_TILES.keys.any? { |n| action.choice == "review_tile#{n}_v1" }
               number = action.choice.delete_prefix('review_tile').delete_suffix('_v1').to_i
@@ -156,7 +161,7 @@ module Engine
               return
             end
 
-            # Preserve replay of saved preset-picker prototypes.
+            # Preserve replay of saved preset-picker games.
             raise GameError, 'Place all four pieces to finish setup' if action.choice == 'confirm' && !@game.map_id
             raise GameError, 'Unknown map choice' unless choices.key?(action.choice)
 

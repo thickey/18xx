@@ -71,6 +71,31 @@ module Engine
       expect(game.depot.upcoming.none? { |train| train.name == '2' }).to be(true)
     end
 
+    it 'offers both charter names and preserves the chosen side while consuming the pair' do
+      game = merger_game
+      act(game, :Choose, choice: 'merge:EM')
+      act(game, :Choose, choice: 'accept')
+      choices = game.round.active_step.choices
+      expect(choices.values).to match_array((Game::GRotla::Economy::MAJORS.values +
+        Game::GRotla::Economy::MAJOR_ALTERNATE_NAMES.values).map { |name| "Form #{name}" })
+      act(game, :Choose, choice: 'major:Unl:alternate')
+      major = game.corporation_by_id('Unl')
+      expect(major.full_name).to eq('Union')
+      expect(major.color).to eq('#e28d53')
+      expect(game.available_majors).not_to include(major)
+      expect(game.available_majors.size).to eq(5)
+      expect(game.clone(game.raw_actions).corporation_by_id('Unl').full_name).to eq('Union')
+    end
+
+    it 'lists only unstarted minors in the bank section of Entities' do
+      game = merger_game
+      expect(game.unstarted_corporation_summary.last).to all(have_attributes(type: :minor, ipoed: false))
+      major = form_major(game)
+      expect(major.ipoed).to be(true)
+      expect(major.owner).not_to be_nil
+      expect(game.unstarted_corporation_summary.last).not_to include(major)
+    end
+
     it 'waits for the next pair of ORs when the first green train is exported' do
       fixture = JSON.parse(File.read('data/rotla/hotseat-merger-ready.json'))
       actions = fixture['actions'].take_while { |action| action['train'] != '3-0' }
@@ -129,7 +154,7 @@ module Engine
       expect(game.round.active_step.choices.keys).to eq(%w[accept decline])
       act(game, :Choose, choice: 'accept')
       expect(game.current_entity).to eq(adaptive.owner)
-      expect(game.round.active_step.choices.size).to eq(6)
+      expect(game.round.active_step.choices.size).to eq(12)
       act(game, :Choose, choice: 'major:Con')
       major = game.corporation_by_id('Con')
       expect(major.owner.name).to eq('Alice')

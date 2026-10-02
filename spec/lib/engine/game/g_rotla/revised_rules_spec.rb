@@ -30,8 +30,7 @@ module Engine
 
     it 'adds a 3 and a 6 at four and five players, before Short Game removals' do
       [[3, [], 5, 2], [4, [], 6, 3], [5, [], 6, 3],
-       [4, [:short_game], 5, 2], [4, [:original_rules], 5, 2],
-       [5, [:original_rules], 6, 2], [4, %i[original_rules short_game], 4, 1],
+       [4, [:short_game], 5, 2],
        [2, [:micro_game_2], 3, nil], [3, [:micro_game_3], 4, nil]].each do |count, options, threes, sixes|
         game = described_class.new(Array.new(count) { |index| "Player #{index}" }, id: '1', optional_rules: options)
         roster = game.game_trains.to_h { |train| [train[:name], train[:num]] }

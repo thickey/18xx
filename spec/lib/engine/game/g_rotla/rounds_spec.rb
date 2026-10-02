@@ -53,6 +53,26 @@ module Engine
       expect(game.depot.upcoming.map(&:name).tally).to include('2' => 7, '3' => 5, '4' => 4)
     end
 
+    it 'marks par spaces with their phase colors and caps launch prices by phase' do
+      game = ready_game
+      expect(game.stock_market.market.size).to eq(1)
+      expect(game.stock_market.par_prices.group_by(&:type).transform_values { |prices| prices.map(&:price).sort })
+        .to eq(par: [60, 70, 80, 90], par_1: [100, 110], par_2: [120, 135])
+      { '2' => 90, '3' => 110, '4' => 110, '5' => 135, '6' => 135, '7' => 135 }.each do |phase, price|
+        game = ready_game
+        allow(game.phase).to receive(:name).and_return(phase)
+        expect(game.maximum_par).to eq(price)
+        player = game.players.first
+        player.set_cash(1000, game.bank)
+        corporation = game.available_charters.find { |corp| corp.id != 'AD' }
+        game.launch_minor!(player, corporation, 400)
+        expect(corporation.par_price.price).to eq(price)
+        corporation = game.available_charters.find { |corp| corp.id != 'AD' }
+        game.launch_minor!(player, corporation, 120)
+        expect(corporation.par_price.price).to eq(60)
+      end
+    end
+
     it 'bids clockwise, excludes passed bidders, funds the winning charter and resumes after the initiator' do
       game = ready_game
       initiator = game.current_entity

@@ -51,7 +51,10 @@ module Engine
             if @major
               @major.trains.reject(&:rusted).to_h { |train| ["discard:#{train.id}", "Discard #{train.name} train (#{train.id})"] }
             elsif @president
-              @game.available_majors.to_h { |major| ["major:#{major.id}", "Form #{major.full_name}"] }
+              @game.available_majors.flat_map do |major|
+                [["major:#{major.id}", "Form #{major.full_name}"],
+                 ["major:#{major.id}:alternate", "Form #{Economy::MAJOR_ALTERNATE_NAMES.fetch(major.id)}"]]
+              end.to_h
             elsif @target
               { 'accept' => 'Agree to merger', 'decline' => 'Decline merger' }
             else
@@ -74,7 +77,8 @@ module Engine
               @game.depot.reclaim_train(train)
               advance! unless excess_trains?
             elsif @president
-              @major = @game.merge_minors!(source, @target, @game.corporation_by_id(action.choice.delete_prefix('major:')))
+              _, id, side = action.choice.split(':')
+              @major = @game.merge_minors!(source, @target, @game.corporation_by_id(id), alternate: side == 'alternate')
               advance! unless excess_trains?
             elsif @target
               if action.choice == 'accept'

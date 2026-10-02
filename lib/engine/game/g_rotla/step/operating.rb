@@ -33,7 +33,6 @@ module Engine
 
         class BuyTrain < Engine::Step::BuyTrain
           def can_sell?(entity, bundle)
-            return super if @game.original_rules?
             return false if entity != current_entity.owner || !must_buy_train?(current_entity)
             return false if !bundle || bundle.num_shares != 1 || !@game.check_sale_timing(entity, bundle)
             return false if entity.cash + current_entity.cash >= @depot.min_depot_price
@@ -42,7 +41,6 @@ module Engine
           end
 
           def process_sell_shares(action)
-            return super if @game.original_rules?
             unless can_sell?(action.entity, action.bundle)
               raise GameError, 'Sell one legal share at a time to fund the mandatory train'
             end
@@ -82,7 +80,7 @@ module Engine
             raise GameError, 'A rusted train cannot be traded in' if action.exchange&.rusted
 
             super
-            finish_emergency_sales! unless @game.original_rules?
+            finish_emergency_sales!
           end
         end
 
@@ -96,7 +94,7 @@ module Engine
           end
 
           def actions(entity)
-            return [] if @game.original_rules? || entity != current_entity
+            return [] if entity != current_entity
             return [] unless @game.can_go_bankrupt?(entity.owner, entity)
 
             ['bankrupt']

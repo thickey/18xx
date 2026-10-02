@@ -33,6 +33,10 @@ module Engine
         STARTING_CASH = { 2 => 450, 3 => 300, 4 => 275, 5 => 220 }.freeze
         CERT_LIMIT = 99
         MARKET = Economy::MARKET
+        STOCKMARKET_COLORS = Base::STOCKMARKET_COLORS.merge(par: :yellow, par_1: :green, par_2: :tile_brown).freeze
+        MARKET_TEXT = Base::MARKET_TEXT.merge(par: 'Par values available from Yellow Phase',
+                                              par_1: 'Additional par values from Green Phase',
+                                              par_2: 'Additional par values from Brown Phase').freeze
         PHASES = Economy::PHASES
         CORPORATIONS = Economy::CORPORATIONS
         TRAINS = Economy::TRAINS
@@ -49,6 +53,13 @@ module Engine
         GAME_END_CHECK = {}.freeze
 
         attr_reader :map_id
+
+        def distant_destination_revenue
+          return 'yellow_20|green_30|brown_50|gray_80' if @optional_rules.include?(:distant_revenue_20_30_50_80)
+          return 'yellow_30|green_60|brown_90|gray_30' if @optional_rules.include?(:distant_revenue_30_60_90_30)
+
+          'yellow_30|green_40|brown_70|gray_100'
+        end
 
         def game_hexes
           @map_id ? Map::PRESETS[@map_id][:hexes] : assembled_hexes
@@ -127,12 +138,10 @@ module Engine
         end
 
         def game_end_check_values
-          original_rules? ? {} : { bankrupt: :immediate }
+          { bankrupt: :immediate }
         end
 
         def can_go_bankrupt?(player, corporation)
-          return super if original_rules?
-
           step = @round.active_step
           return false if !step.is_a?(Step::BuyTrain) || step.is_a?(Step::LeadOffTrain)
           return false if corporation != step.current_entity || !must_buy_train?(corporation)
@@ -172,7 +181,7 @@ module Engine
           if @playing
             if @round.instance_of?(Round::ExportDiscard)
               advance_cycle!
-            elsif @round.instance_of?(Round::MapReady)
+            elsif @round.instance_of?(Round::Setup) || @round.instance_of?(Round::MapReady)
               @round = stock_round
             elsif @round.stock?
               if @corporations.none?(&:ipoed)

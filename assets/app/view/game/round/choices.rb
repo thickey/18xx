@@ -19,7 +19,7 @@ module View
             style: {
               display: 'flex',
               maxWidth: '100%',
-              width: 'max-content',
+              width: @step.respond_to?(:map_builder?) && @step.map_builder? ? '100%' : 'max-content',
             },
           }
 

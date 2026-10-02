@@ -14,10 +14,10 @@ IDs are FWTWR reference labels; the physical tiles are unnumbered.
 | Blue | Blue | 3 | 5 |
 
 Yellow counts were already correct. Capital 291 is the broad curve, 292 the
-sharp curve, and 293 the straight: 291 and 292 were swapped in the prototype.
+sharp curve, and 293 the straight: 291 and 292 were swapped in the earlier implementation.
 Each has one copy, one slot, and revenue 40. Ordinary yellow cities pay 20.
 
-Green removes prototype tile 18, adds 17/21/22/30/31/619/624, and corrects
+Green removes legacy tile 18, adds 17/21/22/30/31/619/624, and corrects
 19 to one copy and 23/24 to four copies each. Capital 294/295/296 have two slots
 and revenue 50, with counts 2/2/1. They use the track patterns of 14/15/619.
 Brown capital 297 has five exits, three slots, revenue 60 and two copies.

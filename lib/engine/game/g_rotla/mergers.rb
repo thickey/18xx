@@ -8,6 +8,11 @@ module Engine
           @corporations.select { |corp| corp.type == :major && !corp.ipoed }
         end
 
+        def unstarted_corporation_summary
+          minors = @corporations.select { |corp| corp.type == :minor && !corp.ipoed && !corp.closed? }
+          ["#{minors.size} minors", minors]
+        end
+
         def merger_connected?(first, second)
           # The destination's own hub does not block reaching that hub. Overnight
           # also ignores intervening cities filled by other corporations.
@@ -27,11 +32,12 @@ module Engine
           [first, second].sort.map(&:owner).find { |player| tied.include?(player) }
         end
 
-        def merge_minors!(first, second, major)
+        def merge_minors!(first, second, major, alternate: false)
           valid = [first, second].all? { |corp| corp.type == :minor && corp.floated? && !corp.closed? }
           valid &&= first != second && available_majors.include?(major) && merger_connected?(first, second)
           raise GameError, 'Merge two connected operating minors into an available major' unless valid
 
+          major.full_name = Economy::MAJOR_ALTERNATE_NAMES.fetch(major.id) if alternate
           minors = [first, second]
           president = merger_president(first, second)
           units = Hash.new(0)
