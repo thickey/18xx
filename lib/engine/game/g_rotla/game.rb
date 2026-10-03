@@ -120,7 +120,7 @@ module Engine
         end
 
         def starting_map
-          return clone(raw_actions.take_while { |action| action['choice'] != 'play_v1' }) if @playing
+          return clone(raw_actions.take_while { |action| !%w[play_v1 finish_setup_v5].include?(action['choice']) }) if @playing
 
           return clone(raw_actions) unless @map_id
 

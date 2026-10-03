@@ -12,7 +12,7 @@ module Engine
     end
 
     it 'matches all 54 source designs and all 135 physical copies' do
-      source = JSON.parse(File.read('data/rotla/track-tiles.json'))
+      source = JSON.parse(File.read('spec/fixtures/rotla/track-tiles.json'))
       expect(game.tiles.group_by(&:name).transform_values(&:size)).to eq(source['tiles'].to_h do |entry|
         [entry['id'], entry['quantity']]
       end)
@@ -86,7 +86,7 @@ module Engine
     end
 
     it 'supports every tile-to-tile relationship in the source upgrade chart' do
-      entries = JSON.parse(File.read('data/rotla/tile-upgrades.json'))['entries']
+      entries = JSON.parse(File.read('spec/fixtures/rotla/tile-upgrades.json'))['entries']
       entries.reject { |entry| entry['source_id'].start_with?('Map') }.each do |entry|
         entry['target_ids'].each do |target|
           expect(game.upgrades_to?(tile(entry['source_id']), tile(target))).to be(true),

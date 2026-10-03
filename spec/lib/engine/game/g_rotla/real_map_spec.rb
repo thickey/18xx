@@ -35,8 +35,8 @@ module Engine
     end
 
     it 'matches the sourced 33-piece physical inventory and runtime audit catalog' do
-      source = JSON.parse(File.read('data/rotla/map-pieces.json'))['pieces']
-      runtime = JSON.parse(File.read('data/rotla/runtime-map-v1.json'))['pieces']
+      source = JSON.parse(File.read('spec/fixtures/rotla/map-pieces.json'))['pieces']
+      runtime = JSON.parse(File.read('spec/fixtures/rotla/runtime-map-v1.json'))['pieces']
       catalog = Game::GRotla::MapCatalog::PIECES
       expect(catalog.map { |p| p[:id] }).to eq(source.map { |p| p['fixed']['generator_tile_id'] })
       expect(catalog.size).to eq(33)
@@ -151,7 +151,7 @@ module Engine
 
     it 'converts every cell of the saved generator reference without reflections or coordinate errors' do
       game = new_real_game
-      reference = JSON.parse(File.read('data/rotla/reference-map-3722698.json'))['placements']
+      reference = JSON.parse(File.read('spec/fixtures/rotla/reference-map-3722698.json'))['placements']
       placements = reference.map do |p|
         index = game.real_catalog.index { |piece| piece[:id] == p['id'] }
         cells = game.piece_cells(p['q'], p['r'], p['rotation'], index)

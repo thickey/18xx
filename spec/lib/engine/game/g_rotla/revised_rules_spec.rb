@@ -6,7 +6,7 @@ require 'json'
 module Engine
   describe Game::GRotla::Game, 'second printing rules' do
     def emergency_game(cash: 0)
-      fixture = JSON.parse(File.read('data/rotla/hotseat-merger-ready.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-merger-ready.json'))
       game = described_class.new(%w[Alice Bob Carol], id: fixture['id'], actions: fixture['actions'])
       corp = game.corporation_by_id('AD')
       corp.trains.dup.each { |train| game.rust(train) }
@@ -66,6 +66,24 @@ module Engine
       expect(other.share_price.price).to eq(50)
       expect(game.finished).to be(true)
       expect(game.game_end_reason).to eq(:bankrupt)
+    end
+
+    it 'rejects emergency sales of another player\'s shares without changing holdings or cash' do
+      game, corp, other = emergency_game
+      seller = corp.owner
+      victim = game.players.find { |player| player != seller }
+      share = seller.shares_of(other).find { |candidate| !candidate.president }
+      game.share_pool.transfer_shares(share.to_bundle, victim, allow_president_change: false)
+      cash = game.players.map(&:cash)
+      price = other.share_price
+      expect(game.round.active_step.actions(seller)).to include('sell_shares')
+      expect(game.round.active_step.can_sell?(seller, share.to_bundle)).to be(false)
+      expect do
+        game.process_action(Action::SellShares.new(seller, shares: [share])).maybe_raise!
+      end.to raise_error(GameError, /Sell one legal share/)
+      expect(share.owner).to eq(victim)
+      expect(game.players.map(&:cash)).to eq(cash)
+      expect(other.share_price).to eq(price)
     end
 
     it 'rejects bundled emergency sales and dumping the operating presidency' do

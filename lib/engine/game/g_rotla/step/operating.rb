@@ -35,6 +35,7 @@ module Engine
           def can_sell?(entity, bundle)
             return false if entity != current_entity.owner || !must_buy_train?(current_entity)
             return false if !bundle || bundle.num_shares != 1 || !@game.check_sale_timing(entity, bundle)
+            return false if bundle.owner != entity
             return false if entity.cash + current_entity.cash >= @depot.min_depot_price
 
             sellable_bundle?(bundle)

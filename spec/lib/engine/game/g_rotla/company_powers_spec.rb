@@ -6,7 +6,7 @@ require 'json'
 module Engine
   describe Game::GRotla::Game, 'company powers' do
     def ready_game
-      fixture = JSON.parse(File.read('data/rotla/hotseat-rounds-start.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-rounds-start.json'))
       described_class.new(%w[Alice Bob Carol], id: fixture['id'], actions: fixture['actions'])
     end
 
@@ -173,7 +173,7 @@ module Engine
     end
 
     it 'replays a suburb placement, its sticky icon, a boosted route and dividend from legal Hotseat actions' do
-      fixture = JSON.parse(File.read('data/rotla/hotseat-company-powers.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-company-powers.json'))
       game = described_class.new(fixture['players'].map { |p| p['name'] }, id: fixture['id'], actions: fixture['actions'])
       su = game.current_entity
       expect(su.id).to eq('SU')
@@ -221,7 +221,7 @@ module Engine
     end
 
     it 'recomputes revenue when a suburb is placed after tracing routes but before the dividend' do
-      fixture = JSON.parse(File.read('data/rotla/hotseat-company-powers.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-company-powers.json'))
       game = described_class.new(fixture['players'].map { |p| p['name'] }, id: fixture['id'], actions: fixture['actions'])
       su = game.current_entity
       act(game, :Pass)

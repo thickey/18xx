@@ -6,7 +6,7 @@ require 'json'
 module Engine
   describe Game::GRotla::Game, 'end of game' do
     def ready_game
-      fixture = JSON.parse(File.read('data/rotla/hotseat-merger-ready.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-merger-ready.json'))
       described_class.new(%w[Alice Bob Carol], id: fixture['id'], actions: fixture['actions'])
     end
 

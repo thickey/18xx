@@ -99,6 +99,23 @@ module Engine
       end
     end
 
+    it 'keeps the v5 starting map and optional blanks separate from subsequent gameplay' do
+      game = game_for(3, [], '3722698')
+      construct(game)
+      q, r = game.blank_hex_anchors.first
+      choose(game, "blank_v5:#{q}:#{r}")
+      setup_actions = game.raw_actions.dup
+      signature = game.hexes.map { |hex| [hex.id, hex.tile.code] }
+      choose(game, 'finish_setup_v5')
+      game.process_action(Action::Bid.new(game.current_entity, price: 125,
+                                                               corporation: game.available_charters.first)).maybe_raise!
+      starting = game.starting_map
+      expect(starting.raw_actions).to eq(setup_actions)
+      expect(starting.playing).to be_falsey
+      expect(starting.blank_hexes).to eq([[q, r]])
+      expect(starting.hexes.map { |hex| [hex.id, hex.tile.code] }).to eq(signature)
+    end
+
     it 'adds at most twelve single blank hexes, without requiring three shared edges, and preserves replay/undo' do
       game = game_for(3, [], '3722698')
       construct(game)

@@ -6,7 +6,7 @@ require 'json'
 module Engine
   describe Game::GRotla::Game, 'mergers' do
     def merger_game
-      fixture = JSON.parse(File.read('data/rotla/hotseat-merger-ready.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-merger-ready.json'))
       described_class.new(%w[Alice Bob Carol], id: fixture['id'], actions: fixture['actions'])
     end
 
@@ -97,7 +97,7 @@ module Engine
     end
 
     it 'waits for the next pair of ORs when the first green train is exported' do
-      fixture = JSON.parse(File.read('data/rotla/hotseat-merger-ready.json'))
+      fixture = JSON.parse(File.read('spec/fixtures/rotla/hotseat-merger-ready.json'))
       actions = fixture['actions'].take_while { |action| action['train'] != '3-0' }
       game = described_class.new(%w[Alice Bob Carol], id: fixture['id'], actions: actions)
       expect(game.phase.name).to eq('2')
