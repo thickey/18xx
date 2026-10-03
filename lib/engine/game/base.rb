@@ -504,6 +504,11 @@ module Engine
         game_hexes
       end
 
+      # Games with a map-building setup can preserve their completed map here.
+      def starting_map
+        clone([])
+      end
+
       def game_hexes
         self.class::HEXES
       end

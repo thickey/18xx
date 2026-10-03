@@ -39,7 +39,7 @@ module View
       def render
         return h(:div, []) if (@layout = @game.layout) == :none
 
-        @hexes = @show_starting_map ? @game.clone([]).hexes : @game.hexes.dup
+        @hexes = @show_starting_map ? @game.starting_map.hexes : @game.hexes.dup
 
         axes_hexes = @hexes.reject(&:ignore_for_axes)
         @cols = compute_axes(axes_hexes.map(&:x))
